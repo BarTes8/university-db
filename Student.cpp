@@ -38,5 +38,5 @@ void Student::getStudent() {
     std::cout << "Gender: " ;
     std::cin >> gender_;
     std::cin.clear();
-    std::cin.ignore();
+    std::cin.ignore(10, '\n');
 }

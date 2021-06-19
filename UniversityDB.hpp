@@ -1,5 +1,6 @@
 #pragma once
 #include "Student.hpp"
+#include <fstream>
 #include <vector>
 
 class UniversityDB {
@@ -12,6 +13,7 @@ public:
 
     void addStudent();
     void showUniversityDB();
+    void writeStudentToFile(Student);
 private:
     std::vector<Student> dataBase_;
 };

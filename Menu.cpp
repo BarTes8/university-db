@@ -10,38 +10,37 @@ void printMenu() {
     std::cout << "6. Sort by surname\n";
     std::cout << "7. Delete by index number\n";
     std::cout << "8. Exit\n";
-    std::cout << "Choose an option: ";   
+    std::cout << "Choose an option: ";
 }
 
 void selectOption(UniversityDB& universityDB) {
     printMenu();
-        auto select = std::getchar();
-        std::cin.clear();
-        std::cin.ignore();
-        switch(select) {
-        case '1':
-            universityDB.addStudent();
-            break;
-        case '2':
-            universityDB.showUniversityDB();
-            break;
-        case '3':
+    auto select = std::getchar();
+    std::cin.clear();
+    std::cin.ignore(10, '\n');
+    switch (select) {
+    case '1':
+        universityDB.addStudent();
+        break;
+    case '2':
+        universityDB.showUniversityDB();
+        break;
+    case '3':
 
-            break;
-        case '4':
+        break;
+    case '4':
 
-            break;
-        case '5':
+        break;
+    case '5':
 
-            break;
-        case '6':
+        break;
+    case '6':
 
-            break;
-        case '7':
+        break;
+    case '7':
 
-            break;
-        case '8':
-            exit(0);
-        }
+        break;
+    case '8':
+        exit(0);
+    }
 }
-
