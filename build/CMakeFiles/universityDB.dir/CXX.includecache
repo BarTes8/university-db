@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/bartes/university/AllStudents.cpp
+AllStudents.hpp
+/home/bartes/university/AllStudents.hpp
+iomanip
+-
+
+/home/bartes/university/AllStudents.hpp
+Student.hpp
+/home/bartes/university/Student.hpp
+vector
+-
+
+/home/bartes/university/Student.hpp
+AllStudents.hpp
+/home/bartes/university/AllStudents.hpp
+string
+-
+iostream
+-
+
+/home/bartes/university/main.cpp
+iostream
+-
+Student.hpp
+/home/bartes/university/Student.hpp
+AllStudents.hpp
+/home/bartes/university/AllStudents.hpp
+

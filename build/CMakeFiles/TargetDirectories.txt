@@ -1,0 +1,3 @@
+/home/bartes/university/build/CMakeFiles/rebuild_cache.dir
+/home/bartes/university/build/CMakeFiles/edit_cache.dir
+/home/bartes/university/build/CMakeFiles/universityDB.dir
