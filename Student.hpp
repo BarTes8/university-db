@@ -14,10 +14,11 @@ public:
     std::string getAddress() const { return address_; }
     std::string getIndexNumber() const { return indexNumber_; }
     std::string getPersonalIdentityNumber () const { return personalIdentityNumber_; }
-
     char getGender() const { return gender_; }
+
+    void Student::addStudent();
     
-//private:
+private:
     std::string name_ {};
     std::string surname_ {};
     std::string address_ {};
