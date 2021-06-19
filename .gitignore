@@ -5,6 +5,7 @@
 ### C++ ###
 # Prerequisites
 *.d
+backupfile.txt
 
 # Compiled Object files
 *.slo
@@ -55,7 +56,8 @@ _deps
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,cmake
 build/CMakeFiles/universityDB.dir/CXX.includecache
-	build/CMakeFiles/universityDB.dir/Menu.cpp.o
-	build/CMakeFiles/universityDB.dir/Student.cpp.o
-	build/CMakeFiles/universityDB.dir/main.cpp.o
-    build/universityDB
+build/CMakeFiles/universityDB.dir/Menu.cpp.o
+build/CMakeFiles/universityDB.dir/Student.cpp.o
+build/CMakeFiles/universityDB.dir/main.cpp.o
+build/universityDB
+build/
