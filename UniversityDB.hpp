@@ -12,5 +12,4 @@ public:
     void showUniversityDB();
 private:
     std::vector<Student> dataBase_;
-
 };
