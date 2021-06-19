@@ -1,13 +1,14 @@
 #pragma once
-#include "AllStudents.hpp"
 
 #include <string>
 #include <iostream>
 
 class Student {
 public:
-    Student() = default;
+    Student();
     Student(std::string, std::string, std::string, std::string, std::string, char);
+
+    ~Student();
 
     std::string getName() const { return name_; }
     std::string getSurname() const { return surname_; }
@@ -16,7 +17,7 @@ public:
     std::string getPersonalIdentityNumber () const { return personalIdentityNumber_; }
     char getGender() const { return gender_; }
 
-    void Student::addStudent();
+    void getStudent();
     
 private:
     std::string name_ {};

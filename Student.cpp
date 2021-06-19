@@ -1,5 +1,19 @@
 #include "Student.hpp"
 
+Student::Student() {
+    name_ = "";
+    surname_ = "";
+    address_ = "";
+    indexNumber_ = "";
+    personalIdentityNumber_ = "";
+    gender_ = '0';
+    std::cout << "Student c-tor" << '\n';
+}
+
+Student::~Student() {
+    std::cout << "Student d-tor" << '\n';
+}
+
 Student::Student(std::string name, std::string surname, std::string address, std::string indexNumber, 
                  std::string personalIdentityNumber, char gender)
     : name_(name)
@@ -10,7 +24,7 @@ Student::Student(std::string name, std::string surname, std::string address, std
     , gender_ (gender)
 {}
 
-void Student::addStudent() {
+void Student::getStudent() {
     std::cout << "Name: " ;
     getline(std::cin, name_);
     std::cout << "Surname: " ;
@@ -22,5 +36,5 @@ void Student::addStudent() {
     std::cout << "Personal identity number: " ;
     getline(std::cin, personalIdentityNumber_);
     std::cout << "Gender: " ;
-    std::getchar() >> gender_;
+    std::cin >> gender_;
 }

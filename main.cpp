@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Student.hpp"
-#include "AllStudents.hpp"
+#include "UniversityDB.hpp"
 
 int main() {
     // Student student1("Adam", "Nowak", "Wroclaw", "12445", "12312421", 'm');
@@ -11,10 +11,10 @@ int main() {
     // std::cout << student1.getPersonalIdentityNumber() << '\n';
     // std::cout << student1.getGender() << '\n';
 
-    AllStudents allstudents;
+    UniversityDB universityDB;
     Student student2;
-    allstudents.addStudent();
-    allstudents.showAllStudents();
+    universityDB.addStudent();
+    universityDB.showUniversityDB();
 
 
 }
