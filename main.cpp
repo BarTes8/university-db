@@ -7,11 +7,11 @@ void showMenu();
 
 int main() {  
     UniversityDB universityDB;
-    universityDB.getDataBase();
     
-    while (true) {
-        selectOption(universityDB);
-    }
+    
+    // while (true) {
+    //     selectOption(universityDB);
+    // }
     
     
 }
