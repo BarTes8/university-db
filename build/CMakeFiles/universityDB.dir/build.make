@@ -70,9 +70,22 @@ CMakeFiles/universityDB.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/universityDB.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bartes/university/main.cpp -o CMakeFiles/universityDB.dir/main.cpp.s
 
+CMakeFiles/universityDB.dir/Menu.cpp.o: CMakeFiles/universityDB.dir/flags.make
+CMakeFiles/universityDB.dir/Menu.cpp.o: ../Menu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bartes/university/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/universityDB.dir/Menu.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/universityDB.dir/Menu.cpp.o -c /home/bartes/university/Menu.cpp
+
+CMakeFiles/universityDB.dir/Menu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/universityDB.dir/Menu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bartes/university/Menu.cpp > CMakeFiles/universityDB.dir/Menu.cpp.i
+
+CMakeFiles/universityDB.dir/Menu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/universityDB.dir/Menu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bartes/university/Menu.cpp -o CMakeFiles/universityDB.dir/Menu.cpp.s
+
 CMakeFiles/universityDB.dir/Student.cpp.o: CMakeFiles/universityDB.dir/flags.make
 CMakeFiles/universityDB.dir/Student.cpp.o: ../Student.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bartes/university/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/universityDB.dir/Student.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bartes/university/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/universityDB.dir/Student.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/universityDB.dir/Student.cpp.o -c /home/bartes/university/Student.cpp
 
 CMakeFiles/universityDB.dir/Student.cpp.i: cmake_force
@@ -83,34 +96,36 @@ CMakeFiles/universityDB.dir/Student.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/universityDB.dir/Student.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bartes/university/Student.cpp -o CMakeFiles/universityDB.dir/Student.cpp.s
 
-CMakeFiles/universityDB.dir/AllStudents.cpp.o: CMakeFiles/universityDB.dir/flags.make
-CMakeFiles/universityDB.dir/AllStudents.cpp.o: ../AllStudents.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bartes/university/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/universityDB.dir/AllStudents.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/universityDB.dir/AllStudents.cpp.o -c /home/bartes/university/AllStudents.cpp
+CMakeFiles/universityDB.dir/UniversityDB.cpp.o: CMakeFiles/universityDB.dir/flags.make
+CMakeFiles/universityDB.dir/UniversityDB.cpp.o: ../UniversityDB.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/bartes/university/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/universityDB.dir/UniversityDB.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/universityDB.dir/UniversityDB.cpp.o -c /home/bartes/university/UniversityDB.cpp
 
-CMakeFiles/universityDB.dir/AllStudents.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/universityDB.dir/AllStudents.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bartes/university/AllStudents.cpp > CMakeFiles/universityDB.dir/AllStudents.cpp.i
+CMakeFiles/universityDB.dir/UniversityDB.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/universityDB.dir/UniversityDB.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/bartes/university/UniversityDB.cpp > CMakeFiles/universityDB.dir/UniversityDB.cpp.i
 
-CMakeFiles/universityDB.dir/AllStudents.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/universityDB.dir/AllStudents.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bartes/university/AllStudents.cpp -o CMakeFiles/universityDB.dir/AllStudents.cpp.s
+CMakeFiles/universityDB.dir/UniversityDB.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/universityDB.dir/UniversityDB.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/bartes/university/UniversityDB.cpp -o CMakeFiles/universityDB.dir/UniversityDB.cpp.s
 
 # Object files for target universityDB
 universityDB_OBJECTS = \
 "CMakeFiles/universityDB.dir/main.cpp.o" \
+"CMakeFiles/universityDB.dir/Menu.cpp.o" \
 "CMakeFiles/universityDB.dir/Student.cpp.o" \
-"CMakeFiles/universityDB.dir/AllStudents.cpp.o"
+"CMakeFiles/universityDB.dir/UniversityDB.cpp.o"
 
 # External object files for target universityDB
 universityDB_EXTERNAL_OBJECTS =
 
 universityDB: CMakeFiles/universityDB.dir/main.cpp.o
+universityDB: CMakeFiles/universityDB.dir/Menu.cpp.o
 universityDB: CMakeFiles/universityDB.dir/Student.cpp.o
-universityDB: CMakeFiles/universityDB.dir/AllStudents.cpp.o
+universityDB: CMakeFiles/universityDB.dir/UniversityDB.cpp.o
 universityDB: CMakeFiles/universityDB.dir/build.make
 universityDB: CMakeFiles/universityDB.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bartes/university/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable universityDB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/bartes/university/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable universityDB"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/universityDB.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
