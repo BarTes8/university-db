@@ -8,6 +8,8 @@ public:
 
     ~UniversityDB();
 
+    std::vector<Student> getDataBase() const { return dataBase_; }
+
     void addStudent();
     void showUniversityDB();
 private:

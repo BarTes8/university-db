@@ -3,6 +3,7 @@ project(universityDB)
 
 set(SRC
     main.cpp
+    Menu.cpp
     Student.cpp
     UniversityDB.cpp
 )
