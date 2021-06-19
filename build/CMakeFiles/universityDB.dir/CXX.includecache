@@ -6,11 +6,19 @@
 
 #IncludeRegexTransform: 
 
+/home/bartes/university/Menu.cpp
+Menu.hpp
+/home/bartes/university/Menu.hpp
+
 /home/bartes/university/Menu.hpp
 UniversityDB.hpp
 /home/bartes/university/UniversityDB.hpp
 iostream
 -
+
+/home/bartes/university/Student.cpp
+Student.hpp
+/home/bartes/university/Student.hpp
 
 /home/bartes/university/Student.hpp
 string
@@ -18,9 +26,17 @@ string
 iostream
 -
 
+/home/bartes/university/UniversityDB.cpp
+UniversityDB.hpp
+/home/bartes/university/UniversityDB.hpp
+
 /home/bartes/university/UniversityDB.hpp
 Student.hpp
 /home/bartes/university/Student.hpp
+algorithm
+-
+fstream
+-
 vector
 -
 

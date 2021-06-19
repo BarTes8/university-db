@@ -6,7 +6,7 @@ Student::Student() {
     address_ = "";
     indexNumber_ = "";
     personalIdentityNumber_ = "";
-    gender_ = '0';
+    gender_ = "";
     std::cout << "Student c-tor" << '\n';
 }
 
@@ -15,7 +15,7 @@ Student::~Student() {
 }
 
 Student::Student(std::string name, std::string surname, std::string address, std::string indexNumber, 
-                 std::string personalIdentityNumber, char gender)
+                 std::string personalIdentityNumber, std::string gender)
     : name_(name)
     , surname_(surname)
     , address_ (address)
@@ -36,7 +36,7 @@ void Student::getStudent() {
     std::cout << "Personal identity number: " ;
     getline(std::cin, personalIdentityNumber_);
     std::cout << "Gender: " ;
-    std::cin >> gender_;
+    getline(std::cin, gender_);
     std::cin.clear();
     std::cin.ignore(10, '\n');
 }

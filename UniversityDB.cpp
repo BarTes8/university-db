@@ -50,30 +50,87 @@ void UniversityDB::writeStudentToFile(Student student) {
         file.close();
     }
     else {
-        std::cerr << "Error";
+        std::cerr << "Error\n";
     }  
 }
 
+// std::vector<std::string> UniversityDB::readDataFromFileToDataBase() {
 
-void UniversityDB::findStudentBySurname() {
-    std::string searchedSurname {};
-    std::cout << "Enter the name you are looking for: " << '\n';
-    std::getline(std::cin, searchedSurname); 
-    auto it = std::find_if(begin(dataBase_), end(dataBase_), searchedSurname);
-    if (it != end(dataBase_)) {
-        showSingleStudent(it); 
-    } 
-    std::cout << "There is no such surname" << '\n';
+// }
+
+Student UniversityDB::getStudentData(std::string studentData) {
+    Student student;
+    std::string singleData = "";
+    int dataNumber = 1;
+    for (size_t i = 0; i < studentData.size(); i++) {
+        if (studentData[i] != '|') {
+            singleData += studentData[i];
+        }
+        else {
+            switch (dataNumber) {
+            case 1:
+                student.getName() = singleData;
+                break;
+            case 2:
+                student.getSurname() = singleData;
+                break;
+            case 3:
+                student.getAddress() = singleData;
+                break;
+            case 4:
+                student.getIndexNumber() = singleData;
+                break;
+            case 5:
+                student.getPersonalIdentityNumber() = singleData;
+                break;
+            case 6:
+                student.getGender() = singleData;
+                break;
+            }
+            singleData = "";
+            dataNumber++;
+        }
+    }
+    return student;
 }
 
-void UniversityDB::findStudentByPersonalIdentityNumber() {
-    std::string PersonalIdentityNumber {};
-    std::cout << "Enter the personal identity number you are looking for: " << '\n';
-    std::getline(std::cin, PersonalIdentityNumber); 
-    auto it = std::find_if(begin(dataBase_), end(dataBase_), PersonalIdentityNumber);
-    if (it != end(dataBase_)) {
-        showSingleStudent(it); 
-    } 
-    std::cout << "There is no such personal identity number" << '\n';
+void UniversityDB::readStudentsFromFile(std::vector<Student>& getDataBase) {
+    Student student;
+    std::string studentData = "";
+    std::fstream file;
+    file.open("UniversityDataBase.txt", std::ios::in);
+    if(file.good()) {
+        while (getline(file, studentData)) {
+            student = getStudentData(studentData);
+            getDataBase.push_back(student);
+        }
+        file.close();
+    }
+    else {
+        std::cerr << "Error\n";
+    }
 }
+
+
+// void UniversityDB::findStudentBySurname() {
+//     std::string searchedSurname {};
+//     std::cout << "Enter the name you are looking for: " << '\n';
+//     std::getline(std::cin, searchedSurname); 
+//     auto it = std::find_if(begin(dataBase_), end(dataBase_), searchedSurname);
+//     if (it != end(dataBase_)) {
+//         showSingleStudent(it); 
+//     } 
+//     std::cout << "There is no such surname" << '\n';
+// }
+
+// void UniversityDB::findStudentByPersonalIdentityNumber() {
+//     std::string PersonalIdentityNumber {};
+//     std::cout << "Enter the personal identity number you are looking for: " << '\n';
+//     std::getline(std::cin, PersonalIdentityNumber); 
+//     auto it = std::find_if(begin(dataBase_), end(dataBase_), PersonalIdentityNumber);
+//     if (it != end(dataBase_)) {
+//         showSingleStudent(it); 
+//     } 
+//     std::cout << "There is no such personal identity number" << '\n';
+// }
 

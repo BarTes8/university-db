@@ -1,8 +1,8 @@
 #pragma once
-#include "Student.hpp"
 #include <algorithm>
 #include <fstream>
 #include <vector>
+#include "Student.hpp"
 
 class UniversityDB {
 public:
@@ -17,8 +17,13 @@ public:
     void showSingleStudent(std::vector<Student>::iterator);
     void findStudentBySurname();
     void findStudentByPersonalIdentityNumber();
-    
+
+    Student getStudentData(std::string);
+
     void writeStudentToFile(Student);
+    //std::vector<std::string> readDataFromFileToDataBase();
+    void readStudentsFromFile(std::vector<Student>&);
+
 private:
     std::vector<Student> dataBase_;
 };

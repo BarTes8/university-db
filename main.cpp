@@ -7,8 +7,10 @@ void showMenu();
 
 int main() {  
     UniversityDB universityDB;
-    
-    
+
+    std::vector<Student> getDataBase();
+    readStudentsFromFile(getDataBase);
+        
     while (true) {
         selectOption(universityDB);
     }
