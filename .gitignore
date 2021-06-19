@@ -54,3 +54,8 @@ _deps
 *-prefix/
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,cmake
+build/CMakeFiles/universityDB.dir/CXX.includecache
+	build/CMakeFiles/universityDB.dir/Menu.cpp.o
+	build/CMakeFiles/universityDB.dir/Student.cpp.o
+	build/CMakeFiles/universityDB.dir/main.cpp.o
+    build/universityDB
