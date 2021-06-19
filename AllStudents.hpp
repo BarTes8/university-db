@@ -4,7 +4,7 @@
 class AllStudents {
 public:
     AllStudents() = default;
- 
+
     void addStudent();
 
 private:

@@ -16,7 +16,7 @@ public:
 
     char getGender() const { return gender_; }
     
-private:
+//private:
     std::string name_ {};
     std::string surname_ {};
     std::string address_ {};
