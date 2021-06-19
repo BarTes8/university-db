@@ -2,5 +2,5 @@
 #include "UniversityDB.hpp"
 #include <iostream>
 
-void showMenu();
+void printMenu();
 void selectOption(UniversityDB&);

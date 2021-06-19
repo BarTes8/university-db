@@ -12,6 +12,7 @@ void UniversityDB::addStudent() {
     Student student;
     student.getStudent();
     dataBase_.push_back(student);
+    writeStudentToFile(student);
 }
 
 void UniversityDB::showUniversityDB() {
@@ -25,6 +26,7 @@ void UniversityDB::showUniversityDB() {
     }
 }
 
+
 void UniversityDB::showSingleStudent(std::vector<Student>::iterator it) {
     size_t distance = std::distance(begin(dataBase_), it);
     std::cout << "Name: " << dataBase_[distance].getName() << '\n';
@@ -34,6 +36,24 @@ void UniversityDB::showSingleStudent(std::vector<Student>::iterator it) {
     std::cout << "Personal identity number: " << dataBase_[distance].getPersonalIdentityNumber() << '\n';
     std::cout << "Gender: " << dataBase_[distance].getGender() << '\n';
 }
+
+void UniversityDB::writeStudentToFile(Student student) {
+    std::fstream file;
+    file.open("UniversityDataBase.txt", std::ios::out | std::ios::app);
+    if (file.good()) {
+        file << student.getName() << '|';
+        file << student.getSurname() << '|';
+        file << student.getAddress() << '|';
+        file << student.getIndexNumber() << '|';
+        file << student.getPersonalIdentityNumber() << '|';
+        file << student.getGender() << '|' << '\n';
+        file.close();
+    }
+    else {
+        std::cerr << "Error";
+    }  
+}
+
 
 void UniversityDB::findStudentBySurname() {
     std::string searchedSurname {};
