@@ -14,36 +14,34 @@ void printMenu() {
 }
 
 void selectOption(UniversityDB& universityDB) {
-    system("clear");
     printMenu();
-    auto select = std::getchar();
-    std::cin.clear();
-    std::cin.ignore();
-    switch(select) {
+        auto select = std::getchar();
+        std::cin.clear();
+        std::cin.ignore();
+        switch(select) {
         case '1':
             universityDB.addStudent();
-        break;
+            break;
         case '2':
             universityDB.showUniversityDB();
-        break;
+            break;
         case '3':
 
-        break;
+            break;
         case '4':
 
-        break;
+            break;
         case '5':
 
-        break;
+            break;
         case '6':
 
-        break;
+            break;
         case '7':
 
-        break;
+            break;
         case '8':
-        exit(0);
-    }
-
+            exit(0);
+        }
 }
 
