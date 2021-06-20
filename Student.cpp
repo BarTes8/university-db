@@ -21,6 +21,16 @@ bool Student::operator==(const Student& student) const {
     return student.indexNumber_ == indexNumber_;
 }
 
+std::istream& operator>>(std::istream& input, Student& student) {
+    input >> student.name_;
+    input >> student.surname_;
+    input >> student.address_;
+    input >> student.indexNumber_;
+    input >> student.personalIdentityNumber_;
+    input >> student.gender_;
+    return input;
+}
+
 bool Student::validatePersonalIdentityNumber() {
     std::vector<int> index{1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
     std::string personalIdentityNumber = "83020112345";
