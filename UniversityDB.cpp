@@ -46,7 +46,7 @@ void UniversityDB::findStudentBySurname() {
             showSingleStudent(index); 
         } else {
             howManyMisses++;
-        }
+        }   
         index++;
     }
     if (howManyMisses == dataBase_.size()) {
@@ -72,6 +72,28 @@ void UniversityDB::findStudentByPersonalIdentityNumber() {
         std::cout << "There is no such personal identity number" << '\n';
     }
 } 
+
+void UniversityDB::sortStudentsByPersonalIdentityNumber() {
+    
+    std::sort(begin(dataBase_), end(dataBase_), 
+                            [](Student first, Student second)
+                            { return first.getPersonalIdentityNumber() < second.getPersonalIdentityNumber(); });
+    showUniversityDB();
+    
+}
+
+void UniversityDB::sortStudentsBySurname() {
+    
+    std::sort(begin(dataBase_), end(dataBase_), 
+                            [](Student first, Student second)
+                            { return first.getSurname() < second.getSurname(); });
+    showUniversityDB();
+    
+}
+
+
+
+
 
 void UniversityDB::writeStudentToFile(Student student) {
     std::fstream file;
