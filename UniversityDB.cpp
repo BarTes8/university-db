@@ -12,6 +12,7 @@ void UniversityDB::addStudent() {
     Student student;
     student.getStudent();
     dataBase_.push_back(student);
+    writeStudentToFile(student);
 }
 
 void UniversityDB::showUniversityDB() {
@@ -63,3 +64,78 @@ void UniversityDB::findStudentByPersonalIdentityNumber() {
         }
     } 
 } 
+
+void UniversityDB::writeStudentToFile(Student student) {
+    std::fstream file;
+    file.open("UniversityDataBase.txt", std::ios::out | std::ios::app);
+    if (file.good()) {
+        file << student.getName() << '|';
+        file << student.getSurname() << '|';
+        file << student.getAddress() << '|';
+        file << student.getIndexNumber() << '|';
+        file << student.getPersonalIdentityNumber() << '|';
+        file << student.getGender() << '|' << '\n';
+        file.close();
+    }
+    else {
+        std::cerr << "Error\n";
+    }  
+}
+
+// std::vector<std::string> UniversityDB::readDataFromFileToDataBase() {
+
+// }
+
+Student UniversityDB::getStudentData(std::string studentData) {
+    Student student;
+    std::string singleData = "";
+    int dataNumber = 1;
+    for (size_t i = 0; i < studentData.size(); i++) {
+        if (studentData[i] != '|') {
+            singleData += studentData[i];
+        }
+        else {
+            switch (dataNumber) {
+            case 1:
+                student.getName() = singleData;
+                break;
+            case 2:
+                student.getSurname() = singleData;
+                break;
+            case 3:
+                student.getAddress() = singleData;
+                break;
+            case 4:
+                student.getIndexNumber() = singleData;
+                break;
+            case 5:
+                student.getPersonalIdentityNumber() = singleData;
+                break;
+            case 6:
+                student.getGender() = singleData;
+                break;
+            }
+            singleData = "";
+            dataNumber++;
+        }
+    }
+    return student;
+}
+
+void UniversityDB::readStudentsFromFile(std::vector<Student>& getDataBase) {
+    Student student;
+    std::string studentData = "";
+    std::fstream file;
+    file.open("UniversityDataBase.txt", std::ios::in);
+    if(file.good()) {
+        while (getline(file, studentData)) {
+            student = getStudentData(studentData);
+            getDataBase.push_back(student);
+        }
+        file.close();
+    }
+    else {
+        std::cerr << "Error\n";
+    }
+}
+

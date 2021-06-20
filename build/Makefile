@@ -123,32 +123,32 @@ universityDB/fast:
 	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/build
 .PHONY : universityDB/fast
 
-AllStudents.o: AllStudents.cpp.o
+Menu.o: Menu.cpp.o
 
-.PHONY : AllStudents.o
+.PHONY : Menu.o
 
 # target to build an object file
-AllStudents.cpp.o:
-	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/AllStudents.cpp.o
-.PHONY : AllStudents.cpp.o
+Menu.cpp.o:
+	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/Menu.cpp.o
+.PHONY : Menu.cpp.o
 
-AllStudents.i: AllStudents.cpp.i
+Menu.i: Menu.cpp.i
 
-.PHONY : AllStudents.i
+.PHONY : Menu.i
 
 # target to preprocess a source file
-AllStudents.cpp.i:
-	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/AllStudents.cpp.i
-.PHONY : AllStudents.cpp.i
+Menu.cpp.i:
+	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/Menu.cpp.i
+.PHONY : Menu.cpp.i
 
-AllStudents.s: AllStudents.cpp.s
+Menu.s: Menu.cpp.s
 
-.PHONY : AllStudents.s
+.PHONY : Menu.s
 
 # target to generate assembly for a file
-AllStudents.cpp.s:
-	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/AllStudents.cpp.s
-.PHONY : AllStudents.cpp.s
+Menu.cpp.s:
+	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/Menu.cpp.s
+.PHONY : Menu.cpp.s
 
 Student.o: Student.cpp.o
 
@@ -176,6 +176,33 @@ Student.s: Student.cpp.s
 Student.cpp.s:
 	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/Student.cpp.s
 .PHONY : Student.cpp.s
+
+UniversityDB.o: UniversityDB.cpp.o
+
+.PHONY : UniversityDB.o
+
+# target to build an object file
+UniversityDB.cpp.o:
+	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/UniversityDB.cpp.o
+.PHONY : UniversityDB.cpp.o
+
+UniversityDB.i: UniversityDB.cpp.i
+
+.PHONY : UniversityDB.i
+
+# target to preprocess a source file
+UniversityDB.cpp.i:
+	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/UniversityDB.cpp.i
+.PHONY : UniversityDB.cpp.i
+
+UniversityDB.s: UniversityDB.cpp.s
+
+.PHONY : UniversityDB.s
+
+# target to generate assembly for a file
+UniversityDB.cpp.s:
+	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/UniversityDB.cpp.s
+.PHONY : UniversityDB.cpp.s
 
 main.o: main.cpp.o
 
@@ -213,12 +240,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... universityDB"
-	@echo "... AllStudents.o"
-	@echo "... AllStudents.i"
-	@echo "... AllStudents.s"
+	@echo "... Menu.o"
+	@echo "... Menu.i"
+	@echo "... Menu.s"
 	@echo "... Student.o"
 	@echo "... Student.i"
 	@echo "... Student.s"
+	@echo "... UniversityDB.o"
+	@echo "... UniversityDB.i"
+	@echo "... UniversityDB.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

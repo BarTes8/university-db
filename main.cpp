@@ -6,13 +6,7 @@
 void showMenu();
 
 int main() {  
-    UniversityDB universityDB;
-    
-    
-    while (true) {
-        selectOption(universityDB);
-    }
-    
-    
+  
+ 
 }
 

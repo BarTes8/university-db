@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/universityDB.dir/AllStudents.cpp.o"
+  "CMakeFiles/universityDB.dir/Menu.cpp.o"
   "CMakeFiles/universityDB.dir/Student.cpp.o"
+  "CMakeFiles/universityDB.dir/UniversityDB.cpp.o"
   "CMakeFiles/universityDB.dir/main.cpp.o"
   "universityDB"
   "universityDB.pdb"

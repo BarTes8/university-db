@@ -6,31 +6,47 @@
 
 #IncludeRegexTransform: 
 
-/home/bartes/university/AllStudents.cpp
-AllStudents.hpp
-/home/bartes/university/AllStudents.hpp
-iomanip
+/home/bartes/university/Menu.cpp
+Menu.hpp
+/home/bartes/university/Menu.hpp
+
+/home/bartes/university/Menu.hpp
+UniversityDB.hpp
+/home/bartes/university/UniversityDB.hpp
+iostream
 -
 
-/home/bartes/university/AllStudents.hpp
+/home/bartes/university/Student.cpp
 Student.hpp
 /home/bartes/university/Student.hpp
-vector
--
 
 /home/bartes/university/Student.hpp
-AllStudents.hpp
-/home/bartes/university/AllStudents.hpp
 string
 -
 iostream
 -
 
+/home/bartes/university/UniversityDB.cpp
+UniversityDB.hpp
+/home/bartes/university/UniversityDB.hpp
+
+/home/bartes/university/UniversityDB.hpp
+Student.hpp
+/home/bartes/university/Student.hpp
+algorithm
+-
+fstream
+-
+vector
+-
+
 /home/bartes/university/main.cpp
 iostream
 -
+Menu.hpp
+/home/bartes/university/Menu.hpp
 Student.hpp
 /home/bartes/university/Student.hpp
-AllStudents.hpp
-/home/bartes/university/AllStudents.hpp
+UniversityDB.hpp
+/home/bartes/university/UniversityDB.hpp
 
