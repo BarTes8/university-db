@@ -1,11 +1,11 @@
 #include "UniversityDB.hpp"
 
 UniversityDB::UniversityDB() {
-    std::cout << "AllStudent c-tor" << '\n';
+    std::cout << "UniversityDB c-tor" << '\n';
 }
 
 UniversityDB::~UniversityDB() {
-    std::cout << "AllStudent d-tor" << '\n';
+    std::cout << "UniversityDB d-tor" << '\n';
 }
 
 void UniversityDB::addStudent() {
@@ -36,11 +36,11 @@ void UniversityDB::showSingleStudent(const size_t index) {
 }
 
 void UniversityDB::findStudentBySurname() {
-    std::string searchedSurname{};
+    std::string searchedSurname {};
     std::cout << "Enter the name you are looking for: ";
     std::getline(std::cin, searchedSurname);
-    size_t index{};
-    size_t howManyMisses{};
+    size_t index {};
+    size_t howManyMisses {};
     for (const auto& it : dataBase_) {
         if (it.getSurname() == searchedSurname) {
             showSingleStudent(index);
@@ -55,11 +55,11 @@ void UniversityDB::findStudentBySurname() {
 }
 
 void UniversityDB::findStudentByPersonalIdentityNumber() {
-    std::string PersonalIdentityNumber{};
+    std::string PersonalIdentityNumber {};
     std::cout << "Enter the personal identity number you are looking for: ";
     std::getline(std::cin, PersonalIdentityNumber);
-    size_t index{};
-    size_t howManyMisses{};
+    size_t index {};
+    size_t howManyMisses {};
     for (const auto& it : dataBase_) {
         if (it.getPersonalIdentityNumber() == PersonalIdentityNumber) {
             showSingleStudent(index);
@@ -74,11 +74,11 @@ void UniversityDB::findStudentByPersonalIdentityNumber() {
 }
 
 void UniversityDB::removeStudentByIndexNumber() {
-    std::string indexNumber{};
+    std::string indexNumber {};
     std::cout << "Enter the index number you are looking for: ";
     std::getline(std::cin, indexNumber);
-    size_t index{};
-    size_t howManyMisses{};
+    size_t index {};
+    size_t howManyMisses {};
     for (auto& it : dataBase_) {
         if (it.getIndexNumber() == indexNumber) {
             dataBase_.erase(std::remove(dataBase_.begin(), dataBase_.end(), dataBase_[index]), dataBase_.end());
@@ -88,10 +88,9 @@ void UniversityDB::removeStudentByIndexNumber() {
         index++;
     }
     if (howManyMisses == dataBase_.size()) {
-        std::cout << "There is no such indexNumber" << '\n';
+        std::cout << "There is no such index number" << '\n';
     }
 }
-
 
 void UniversityDB::sortStudentsByPersonalIdentityNumber() {
     
@@ -110,10 +109,6 @@ void UniversityDB::sortStudentsBySurname() {
     showUniversityDB();
     
 }
-
-
-
-
 
 void UniversityDB::writeStudentToFile(Student student) {
     std::fstream file;
