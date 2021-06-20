@@ -25,35 +25,41 @@ void UniversityDB::showUniversityDB() {
     }
 }
 
-void UniversityDB::showSingleStudent(std::vector<Student>::iterator it) {
-    size_t distance = std::distance(begin(dataBase_), it);
-    std::cout << "Name: " << dataBase_[distance].getName() << '\n';
-    std::cout << "Surname: " << dataBase_[distance].getSurname() << '\n';
-    std::cout << "Address: " << dataBase_[distance].getAddress() << '\n';
-    std::cout << "Index number: " << dataBase_[distance].getIndexNumber() << '\n';
-    std::cout << "Personal identity number: " << dataBase_[distance].getPersonalIdentityNumber() << '\n';
-    std::cout << "Gender: " << dataBase_[distance].getGender() << '\n';
+void UniversityDB::showSingleStudent(size_t index) {
+    std::cout << "Name: " << dataBase_[index].getName() << '\n';
+    std::cout << "Surname: " << dataBase_[index].getSurname() << '\n';
+    std::cout << "Address: " << dataBase_[index].getAddress() << '\n';
+    std::cout << "Index number: " << dataBase_[index].getIndexNumber() << '\n';
+    std::cout << "Personal identity number: " << dataBase_[index].getPersonalIdentityNumber() << '\n';
+    std::cout << "Gender: " << dataBase_[index].getGender() << '\n';
 }
 
 void UniversityDB::findStudentBySurname() {
     std::string searchedSurname {};
     std::cout << "Enter the name you are looking for: " << '\n';
     std::getline(std::cin, searchedSurname); 
-    auto it = std::find_if(begin(dataBase_), end(dataBase_), searchedSurname);
-    if (it != end(dataBase_)) {
-        showSingleStudent(it); 
-    } 
-    std::cout << "There is no such surname" << '\n';
+    size_t counter {};
+    for (const auto& it : dataBase_) {
+        counter++;
+        if (it.getSurname() == searchedSurname) {
+            showSingleStudent(counter); 
+        } else {
+            std::cout << "There is no such surname" << '\n';
+        } 
+    }
 }
 
 void UniversityDB::findStudentByPersonalIdentityNumber() {
     std::string PersonalIdentityNumber {};
     std::cout << "Enter the personal identity number you are looking for: " << '\n';
-    std::getline(std::cin, PersonalIdentityNumber); 
-    auto it = std::find_if(begin(dataBase_), end(dataBase_), PersonalIdentityNumber);
-    if (it != end(dataBase_)) {
-        showSingleStudent(it); 
+    std::getline(std::cin, PersonalIdentityNumber);
+    size_t counter {};
+    for (const auto& it : dataBase_) {
+        counter++;
+        if (it.getSurname() == PersonalIdentityNumber) {
+            showSingleStudent(counter); 
+        } else {
+            std::cout << "There is no such personal identity number" << '\n';
+        }
     } 
-    std::cout << "There is no such personal identity number" << '\n';
-}
-
+} 

@@ -9,9 +9,9 @@ int main() {
     UniversityDB universityDB;
     
     
-    // while (true) {
-    //     selectOption(universityDB);
-    // }
+    while (true) {
+        selectOption(universityDB);
+    }
     
     
 }
