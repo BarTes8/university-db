@@ -32,13 +32,12 @@ void selectOption(UniversityDB& universityDB) {
         universityDB.findStudentByPersonalIdentityNumber();
         break;
     case '5':
-
+        universityDB.sortStudentsByPersonalIdentityNumber();
         break;
     case '6':
-
+        universityDB.sortStudentsBySurname();
         break;
     case '7':
-
         break;
     case '8':
         exit(0);
