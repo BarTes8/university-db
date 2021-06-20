@@ -20,7 +20,7 @@ void UniversityDB::showUniversityDB() {
         std::cout << student.getName() << '\n';
         std::cout << student.getSurname() << '\n';
         std::cout << student.getAddress() << '\n';
-        std::cout << student.getIndexNumber() << '\n'; 
+        std::cout << student.getIndexNumber() << '\n';
         std::cout << student.getPersonalIdentityNumber() << '\n';
         std::cout << student.getGender() << '\n';
     }
@@ -36,14 +36,14 @@ void UniversityDB::showSingleStudent(const size_t index) {
 }
 
 void UniversityDB::findStudentBySurname() {
-    std::string searchedSurname {};
+    std::string searchedSurname{};
     std::cout << "Enter the name you are looking for: ";
-    std::getline(std::cin, searchedSurname); 
-    size_t index {};
-    size_t howManyMisses {};
+    std::getline(std::cin, searchedSurname);
+    size_t index{};
+    size_t howManyMisses{};
     for (const auto& it : dataBase_) {
         if (it.getSurname() == searchedSurname) {
-            showSingleStudent(index); 
+            showSingleStudent(index);
         } else {
             howManyMisses++;
         }   
@@ -51,27 +51,47 @@ void UniversityDB::findStudentBySurname() {
     }
     if (howManyMisses == dataBase_.size()) {
         std::cout << "There is no such surname\n";
-    }  
+    }
 }
 
 void UniversityDB::findStudentByPersonalIdentityNumber() {
-    std::string PersonalIdentityNumber {};
+    std::string PersonalIdentityNumber{};
     std::cout << "Enter the personal identity number you are looking for: ";
     std::getline(std::cin, PersonalIdentityNumber);
-    size_t index {};
-    size_t howManyMisses {};
+    size_t index{};
+    size_t howManyMisses{};
     for (const auto& it : dataBase_) {
         if (it.getPersonalIdentityNumber() == PersonalIdentityNumber) {
-            showSingleStudent(index); 
+            showSingleStudent(index);
         } else {
             howManyMisses++;
         }
         index++;
-    } 
+    }
     if (howManyMisses == dataBase_.size()) {
         std::cout << "There is no such personal identity number" << '\n';
     }
-} 
+}
+
+void UniversityDB::removeStudentByIndexNumber() {
+    std::string indexNumber{};
+    std::cout << "Enter the index number you are looking for: ";
+    std::getline(std::cin, indexNumber);
+    size_t index{};
+    size_t howManyMisses{};
+    for (auto& it : dataBase_) {
+        if (it.getIndexNumber() == indexNumber) {
+            dataBase_.erase(std::remove(dataBase_.begin(), dataBase_.end(), dataBase_[index]), dataBase_.end());
+        } else {
+            howManyMisses++;
+        }
+        index++;
+    }
+    if (howManyMisses == dataBase_.size()) {
+        std::cout << "There is no such indexNumber" << '\n';
+    }
+}
+
 
 void UniversityDB::sortStudentsByPersonalIdentityNumber() {
     
@@ -106,10 +126,9 @@ void UniversityDB::writeStudentToFile(Student student) {
         file << student.getPersonalIdentityNumber() << '|';
         file << student.getGender() << '|' << '\n';
         file.close();
-    }
-    else {
+    } else {
         std::cerr << "Error\n";
-    }  
+    }
 }
 
 // std::vector<std::string> UniversityDB::readDataFromFileToDataBase() {
@@ -123,8 +142,7 @@ Student UniversityDB::getStudentData(std::string studentData) {
     for (size_t i = 0; i < studentData.size(); i++) {
         if (studentData[i] != '|') {
             singleData += studentData[i];
-        }
-        else {
+        } else {
             switch (dataNumber) {
             case 1:
                 student.getName() = singleData;
@@ -157,15 +175,13 @@ void UniversityDB::readStudentsFromFile() {
     std::string studentData = "";
     std::fstream file;
     file.open("UniversityDataBase.txt", std::ios::in);
-    if(file.good()) {
-        while (getline(file, studentData)) {
+    if (file.good()) {
+        while (std::getline(file, studentData)) {
             student = getStudentData(studentData);
             dataBase_.push_back(student);
         }
         file.close();
-    }
-    else {
+    } else {
         std::cerr << "Error\n";
     }
 }
-

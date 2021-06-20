@@ -19,6 +19,8 @@ public:
     void findStudentByPersonalIdentityNumber();
     void sortStudentsByPersonalIdentityNumber();
     void sortStudentsBySurname();
+    void removeStudentByIndexNumber();
+    
 
     Student getStudentData(std::string);
 

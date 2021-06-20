@@ -38,6 +38,7 @@ void selectOption(UniversityDB& universityDB) {
         universityDB.sortStudentsBySurname();
         break;
     case '7':
+        universityDB.removeStudentByIndexNumber();
         break;
     case '8':
         exit(0);

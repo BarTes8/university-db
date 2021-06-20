@@ -24,6 +24,10 @@ Student::Student(std::string name, std::string surname, std::string address, std
     , gender_ (gender)
 {}
 
+bool Student::operator==(const Student& student) const {
+    return student.indexNumber_ == indexNumber_;
+}
+
 void Student::getStudent() {
     std::cout << "Name: " ;
     getline(std::cin, name_);
