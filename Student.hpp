@@ -1,7 +1,11 @@
 #pragma once
 
-#include <string>
+#include <cctype>
 #include <iostream>
+#include <numeric>
+#include <string>
+#include <vector>
+
 
 class Student {
 public:
@@ -20,7 +24,8 @@ public:
     std::string getGender() const { return gender_; }
 
     void getStudent();
-    
+    bool validatePersonalIdentityNumber();
+
 private:
     std::string name_ {};
     std::string surname_ {};
