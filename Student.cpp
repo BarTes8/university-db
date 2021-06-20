@@ -41,6 +41,4 @@ void Student::getStudent() {
     getline(std::cin, personalIdentityNumber_);
     std::cout << "Gender: " ;
     getline(std::cin, gender_);
-    // std::cin.clear();
-    // std::cin.ignore(10, '\n');
 }
