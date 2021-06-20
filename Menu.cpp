@@ -26,10 +26,10 @@ void selectOption(UniversityDB& universityDB) {
         universityDB.showUniversityDB();
         break;
     case '3':
-
+        universityDB.findStudentBySurname();
         break;
     case '4':
-
+        universityDB.findStudentByPersonalIdentityNumber();
         break;
     case '5':
 

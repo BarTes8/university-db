@@ -26,7 +26,7 @@ void UniversityDB::showUniversityDB() {
     }
 }
 
-void UniversityDB::showSingleStudent(size_t index) {
+void UniversityDB::showSingleStudent(const size_t index) {
     std::cout << "Name: " << dataBase_[index].getName() << '\n';
     std::cout << "Surname: " << dataBase_[index].getSurname() << '\n';
     std::cout << "Address: " << dataBase_[index].getAddress() << '\n';
@@ -37,32 +37,40 @@ void UniversityDB::showSingleStudent(size_t index) {
 
 void UniversityDB::findStudentBySurname() {
     std::string searchedSurname {};
-    std::cout << "Enter the name you are looking for: " << '\n';
+    std::cout << "Enter the name you are looking for: ";
     std::getline(std::cin, searchedSurname); 
-    size_t counter {};
+    size_t index {};
+    size_t howManyMisses {};
     for (const auto& it : dataBase_) {
-        counter++;
         if (it.getSurname() == searchedSurname) {
-            showSingleStudent(counter); 
+            showSingleStudent(index); 
         } else {
-            std::cout << "There is no such surname" << '\n';
-        } 
+            howManyMisses++;
+        }
+        index++;
     }
+    if (howManyMisses == dataBase_.size()) {
+        std::cout << "There is no such surname\n";
+    }  
 }
 
 void UniversityDB::findStudentByPersonalIdentityNumber() {
     std::string PersonalIdentityNumber {};
-    std::cout << "Enter the personal identity number you are looking for: " << '\n';
+    std::cout << "Enter the personal identity number you are looking for: ";
     std::getline(std::cin, PersonalIdentityNumber);
-    size_t counter {};
+    size_t index {};
+    size_t howManyMisses {};
     for (const auto& it : dataBase_) {
-        counter++;
-        if (it.getSurname() == PersonalIdentityNumber) {
-            showSingleStudent(counter); 
+        if (it.getPersonalIdentityNumber() == PersonalIdentityNumber) {
+            showSingleStudent(index); 
         } else {
-            std::cout << "There is no such personal identity number" << '\n';
+            howManyMisses++;
         }
+        index++;
     } 
+    if (howManyMisses == dataBase_.size()) {
+        std::cout << "There is no such personal identity number" << '\n';
+    }
 } 
 
 void UniversityDB::writeStudentToFile(Student student) {
