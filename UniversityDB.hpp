@@ -17,6 +17,8 @@ public:
     void showSingleStudent(size_t);
     void findStudentBySurname();
     void findStudentByPersonalIdentityNumber();
+    Student findStudentByIndexNumber();
+    void removeFromDatabase();
 
     Student getStudentData(std::string);
 
