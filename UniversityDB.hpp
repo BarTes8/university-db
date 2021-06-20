@@ -14,7 +14,7 @@ public:
 
     void addStudent();
     void showUniversityDB();
-    void showSingleStudent(std::vector<Student>::iterator);
+    void showSingleStudent(size_t);
     void findStudentBySurname();
     void findStudentByPersonalIdentityNumber();
 
