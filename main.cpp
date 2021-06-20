@@ -8,8 +8,8 @@ void showMenu();
 int main() {  
     UniversityDB universityDB;
 
-    std::vector<Student> getDataBase();
-    readStudentsFromFile(getDataBase);
+    std::vector<Student> dataBase;
+    universityDB.readStudentsFromFile();
         
     while (true) {
         selectOption(universityDB);

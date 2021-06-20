@@ -94,7 +94,7 @@ Student UniversityDB::getStudentData(std::string studentData) {
     return student;
 }
 
-void UniversityDB::readStudentsFromFile(std::vector<Student>& getDataBase) {
+void UniversityDB::readStudentsFromFile() {
     Student student;
     std::string studentData = "";
     std::fstream file;
@@ -102,7 +102,7 @@ void UniversityDB::readStudentsFromFile(std::vector<Student>& getDataBase) {
     if(file.good()) {
         while (getline(file, studentData)) {
             student = getStudentData(studentData);
-            getDataBase.push_back(student);
+            dataBase_.push_back(student);
         }
         file.close();
     }

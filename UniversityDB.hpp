@@ -22,7 +22,7 @@ public:
 
     void writeStudentToFile(Student);
     //std::vector<std::string> readDataFromFileToDataBase();
-    void readStudentsFromFile(std::vector<Student>&);
+    void readStudentsFromFile();
 
 private:
     std::vector<Student> dataBase_;
