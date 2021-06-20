@@ -38,7 +38,7 @@ void selectOption(UniversityDB& universityDB) {
 
         break;
     case '7':
-
+        universityDB.findStudentByIndexNumber();
         break;
     case '8':
         exit(0);

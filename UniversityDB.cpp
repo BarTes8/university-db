@@ -73,15 +73,15 @@ void UniversityDB::findStudentByPersonalIdentityNumber() {
     }
 }
 
-Student UniversityDB::findStudentByIndexNumber() {
+void UniversityDB::findStudentByIndexNumber() {
     std::string indexNumber{};
     std::cout << "Enter the index number you are looking for: ";
     std::getline(std::cin, indexNumber);
     size_t index{};
     size_t howManyMisses{};
-    for (const auto& it : dataBase_) {
+    for (auto& it : dataBase_) {
         if (it.getIndexNumber() == indexNumber) {
-            return dataBase_[index];
+            dataBase_.erase(std::remove(dataBase_.begin(), dataBase_.end(), dataBase_[index]), dataBase_.end());
         } else {
             howManyMisses++;
         }
@@ -90,28 +90,8 @@ Student UniversityDB::findStudentByIndexNumber() {
     if (howManyMisses == dataBase_.size()) {
         std::cout << "There is no such indexNumber" << '\n';
     }
-    return {};
 }
 
-void UniversityDB::removeFromDatabase() {
-    bool findStudent = false;
-    size_t index{};
-    std::string indexNumber{};
-    if (!dataBase_.empty()) {
-        std::cout << "Enter the index number of the student you want to remove: ";
-        std::getline(std::cin, indexNumber);
-        for (auto& it : dataBase_) {
-            if (it.getIndexNumber() == indexNumber) {
-                showSingleStudent(index);
-                
-            } 
-                       
-        }
-    }
-    else {
-        std::cout << "Database is empty\n";
-    }
-}
 
 void UniversityDB::writeStudentToFile(Student student) {
     std::fstream file;

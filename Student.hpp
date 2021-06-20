@@ -10,6 +10,12 @@ public:
 
     ~Student();
 
+    //inline bool operator==(const X& lhs, const X& rhs)
+    bool operator==(const Student&) const;
+    // bool Operator==(const Student& lhs, const Student& rhs) {
+    //     return lhs == rhs;
+    // }
+
     std::string getName() const { return name_; }
     std::string getSurname() const { return surname_; }
     std::string getAddress() const { return address_; }
