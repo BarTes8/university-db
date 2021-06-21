@@ -36,84 +36,75 @@ void UniversityDB::showSingleStudent(const size_t index) {
 }
 
 void UniversityDB::findStudentBySurname() {
-    std::string searchedSurname {};
+    std::string searchedSurname{};
     std::cout << "Enter the name you are looking for: ";
     std::getline(std::cin, searchedSurname);
-    size_t index {};
-    size_t howManyMisses {};
+    size_t index{};
+    bool guard = true;
     for (const auto& it : dataBase_) {
         if (it.getSurname() == searchedSurname) {
             showSingleStudent(index);
-        } else {
-            howManyMisses++;
-        }   
+            guard = false;
+        }
         index++;
     }
-    if (howManyMisses == dataBase_.size()) {
+    if (guard) {
         std::cout << "There is no such surname\n";
     }
 }
 
 void UniversityDB::findStudentByPersonalIdentityNumber() {
-    std::string PersonalIdentityNumber {};
+    std::string PersonalIdentityNumber{};
     std::cout << "Enter the personal identity number you are looking for: ";
     std::getline(std::cin, PersonalIdentityNumber);
-    size_t index {};
-    size_t howManyMisses {};
+    size_t index{};
+    bool guard = true;
     for (const auto& it : dataBase_) {
         if (it.getPersonalIdentityNumber() == PersonalIdentityNumber) {
             showSingleStudent(index);
-        } else {
-            howManyMisses++;
+            guard = false;
         }
         index++;
     }
-    if (howManyMisses == dataBase_.size()) {
+    if (guard) {
         std::cout << "There is no such personal identity number" << '\n';
     }
 }
 
 void UniversityDB::removeStudentByIndexNumber() {
-    std::string indexNumber {};
+    bool guard = true;
+    std::string indexNumber{};
     std::cout << "Enter the index number you are looking for: ";
     std::getline(std::cin, indexNumber);
-    size_t index {};
-    size_t howManyMisses {};
+    size_t index{};
     for (auto& it : dataBase_) {
         if (it.getIndexNumber() == indexNumber) {
             dataBase_.erase(std::remove(dataBase_.begin(), dataBase_.end(), dataBase_[index]), dataBase_.end());
-        } else {
-            howManyMisses++;
+            removeStudentFromFile(dataBase_);
+            guard = false;
         }
         index++;
     }
-    if (howManyMisses == dataBase_.size()) {
+    if (guard) {
         std::cout << "There is no such index number" << '\n';
     }
 }
 
 void UniversityDB::sortStudentsByPersonalIdentityNumber() {
-    
-    std::sort(begin(dataBase_), end(dataBase_), 
-                            [](Student first, Student second)
-                            { return first.getPersonalIdentityNumber() < second.getPersonalIdentityNumber(); });
+    std::sort(begin(dataBase_), end(dataBase_),
+              [](Student first, Student second) { return first.getPersonalIdentityNumber() < second.getPersonalIdentityNumber(); });
     showUniversityDB();
-    
 }
 
 void UniversityDB::sortStudentsBySurname() {
-    
-    std::sort(begin(dataBase_), end(dataBase_), 
-                            [](Student first, Student second)
-                            { return first.getSurname() < second.getSurname(); });
+    std::sort(begin(dataBase_), end(dataBase_),
+              [](Student first, Student second) { return first.getSurname() < second.getSurname(); });
     showUniversityDB();
-    
 }
 
-void UniversityDB::writeStudentToFile(Student student) {
-    std::fstream file;
-    file.open("UniversityDataBase.txt", std::ios::out | std::ios::app);
-    if (file.good()) {
+void UniversityDB::writeStudentToFile(Student& student) {
+    std::fstream file("UniversityDataBase.txt", file.out | file.app);
+    if (file.is_open()) {
         file << student.getName() << '|';
         file << student.getSurname() << '|';
         file << student.getAddress() << '|';
@@ -121,62 +112,37 @@ void UniversityDB::writeStudentToFile(Student student) {
         file << student.getPersonalIdentityNumber() << '|';
         file << student.getGender() << '|' << '\n';
         file.close();
-    } else {
-        std::cerr << "Error\n";
     }
 }
 
-// std::vector<std::string> UniversityDB::readDataFromFileToDataBase() {
-
-// }
-
-Student UniversityDB::getStudentData(std::string studentData) {
-    Student student;
-    std::string singleData = "";
-    int dataNumber = 1;
-    for (size_t i = 0; i < studentData.size(); i++) {
-        if (studentData[i] != '|') {
-            singleData += studentData[i];
-        } else {
-            switch (dataNumber) {
-            case 1:
-                student.getName() = singleData;
-                break;
-            case 2:
-                student.getSurname() = singleData;
-                break;
-            case 3:
-                student.getAddress() = singleData;
-                break;
-            case 4:
-                student.getIndexNumber() = singleData;
-                break;
-            case 5:
-                student.getPersonalIdentityNumber() = singleData;
-                break;
-            case 6:
-                student.getGender() = singleData;
-                break;
-            }
-            singleData = "";
-            dataNumber++;
+void UniversityDB::removeStudentFromFile(std::vector<Student>& database) {
+    std::fstream file("UniversityDataBase.txt", file.out);
+    if (file.is_open()) {
+        for (auto student : database) {
+            file << student.getName() << '|';
+            file << student.getSurname() << '|';
+            file << student.getAddress() << '|';
+            file << student.getIndexNumber() << '|';
+            file << student.getPersonalIdentityNumber() << '|';
+            file << student.getGender() << '|' << '\n';
         }
+        file.close();
     }
-    return student;
 }
 
 void UniversityDB::readStudentsFromFile() {
-    Student student;
-    std::string studentData = "";
-    std::fstream file;
-    file.open("UniversityDataBase.txt", std::ios::in);
-    if (file.good()) {
-        while (std::getline(file, studentData)) {
-            student = getStudentData(studentData);
-            dataBase_.push_back(student);
+    std::string name, surname, address, indexNumber, personalIdentityNumber, gender, line;
+    std::ifstream file("UniversityDataBase.txt", file.in);
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            std::stringstream ss(line);
+            getline(ss, name, '|');
+            getline(ss, surname, '|');
+            getline(ss, address, '|');
+            getline(ss, indexNumber, '|');
+            getline(ss, personalIdentityNumber, '|');
+            getline(ss, gender, '|');
+            dataBase_.emplace_back(Student(name, surname, address, indexNumber, personalIdentityNumber, gender));
         }
-        file.close();
-    } else {
-        std::cerr << "Error\n";
     }
 }

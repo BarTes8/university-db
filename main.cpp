@@ -5,11 +5,12 @@
 
 void showMenu();
 
-int main() {  
+int main() {
     UniversityDB universityDB;
+    universityDB.readStudentsFromFile();
     while (true) {
         selectOption(universityDB);
     }
-    
-}
 
+    return 0;
+}

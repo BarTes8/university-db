@@ -1,6 +1,7 @@
 #pragma once
 #include <algorithm>
 #include <fstream>
+#include <sstream>
 #include <vector>
 #include "Student.hpp"
 
@@ -22,8 +23,8 @@ public:
     void removeStudentByIndexNumber();
     
     Student getStudentData(std::string);
-    void writeStudentToFile(Student);
-    //std::vector<std::string> readDataFromFileToDataBase();
+    void writeStudentToFile(Student&);
+    void removeStudentFromFile(std::vector<Student>&);
     void readStudentsFromFile();
 
 private:
