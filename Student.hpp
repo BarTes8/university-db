@@ -30,6 +30,11 @@ public:
     size_t getYear();
     bool isDayCodeCorrect(size_t);
     bool validatePersonalIdentityNumber();
+    bool isGenderCorrect();
+    bool isLastNumberCorrect();
+
+    bool validateGenderName();
+    void stringValidation(std::string&);
 
 private:
     std::string name_{};
