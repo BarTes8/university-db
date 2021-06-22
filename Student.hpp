@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cctype>
+#include <chrono>
 #include <iostream>
 #include <numeric>
 #include <string>
@@ -22,14 +23,11 @@ public:
     std::string getPersonalIdentityNumber() const { return personalIdentityNumber_; }
     std::string getGender() const { return gender_; }
 
-    // void setName(std::string& name) { name_ = name; }
-    // void setSurname(const std::string& surname) { surname_ = surname; }
-    // void setAddress(const std::string& address) { address_ = address; }
-    // void setIndexNumber(const std::string& indexNumber) { indexNumber_ = indexNumber; }
-    // void setPersonalIdentityNumber(const std::string personalIdentityNumber) { personalIdentityNumber_ = personalIdentityNumber; }
-    // void setGender(const std::string& gender) { gender_ = gender; }
-
     void getStudent();
+    bool hasPersonalIdentityNumberElevenCharacters();
+    bool areAllCharactersDigit();
+    bool isMonthCodeCorrect();
+    size_t getYear();
     bool validatePersonalIdentityNumber();
 
 private:

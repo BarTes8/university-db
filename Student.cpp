@@ -21,19 +21,49 @@ bool Student::operator==(const Student& student) const {
     return student.indexNumber_ == indexNumber_;
 }
 
+bool Student::hasPersonalIdentityNumberElevenCharacters() {
+    if(personalIdentityNumber_.size() != 11) {
+        return false;
+    }
+}
+
+bool Student::areAllCharactersDigit() {
+    for (const auto& el : personalIdentityNumber_) {
+        if (!isdigit(el)) {
+            return false;
+        }
+    }
+}
+
+bool Student::isMonthCodeCorrect() {
+    if ((personalIdentityNumber_[2] - '0') % 2 != 0 && (personalIdentityNumber_[3] - '0') > 2) {
+        return false;
+    }
+    if ((personalIdentityNumber_[2] - '0') % 2 == 0 && (personalIdentityNumber_[3] - '0') == 0) {
+        return false;
+    }
+}
+
+size_t Student::getYear() {
+    if ((personalIdentityNumber_[2] - '0') == 8 || (personalIdentityNumber_[2] - '0') == 9)
+        return 18 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
+    if ((personalIdentityNumber_[2] - '0') == 0 || (personalIdentityNumber_[2] - '0') == 1)
+        return 19 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
+    if ((personalIdentityNumber_[2] - '0') == 2 || (personalIdentityNumber_[2] - '0') == 3)
+        return 20 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
+    if ((personalIdentityNumber_[2] - '0') == 4 || (personalIdentityNumber_[2] - '0') == 5)
+        return 21 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
+    if ((personalIdentityNumber_[2] - '0') == 6 || (personalIdentityNumber_[2] - '0') == 7)
+        return 22 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');  
+}
+
 bool Student::validatePersonalIdentityNumber() {
     std::vector<int> index{1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
     std::string personalIdentityNumber = "83020112345";
     std::vector<int> personalNumber;
     personalNumber.reserve(11);
-    if (personalIdentityNumber.size() != 11) {
-        return false;
-    }
-    for (const auto& el : personalIdentityNumber) {
-        if (!isdigit(el)) {
-            return false;
-        }
-    }
+   
+    
     if (personalIdentityNumber[9] % 2 == 0 && gender_ != "k") {
         return false;
     }
