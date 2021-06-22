@@ -6,7 +6,7 @@
 #include <numeric>
 #include <string>
 #include <vector>
-class UniversityDB;
+
 class Student {
 public:
     Student();
@@ -28,6 +28,7 @@ public:
     bool areAllCharactersDigit();
     bool isMonthCodeCorrect();
     size_t getYear();
+    bool isDayCodeCorrect(size_t);
     bool validatePersonalIdentityNumber();
 
 private:

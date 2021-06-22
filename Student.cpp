@@ -25,6 +25,7 @@ bool Student::hasPersonalIdentityNumberElevenCharacters() {
     if(personalIdentityNumber_.size() != 11) {
         return false;
     }
+    return true;
 }
 
 bool Student::areAllCharactersDigit() {
@@ -33,6 +34,7 @@ bool Student::areAllCharactersDigit() {
             return false;
         }
     }
+    return true;
 }
 
 bool Student::isMonthCodeCorrect() {
@@ -42,6 +44,7 @@ bool Student::isMonthCodeCorrect() {
     if ((personalIdentityNumber_[2] - '0') % 2 == 0 && (personalIdentityNumber_[3] - '0') == 0) {
         return false;
     }
+    return true;
 }
 
 size_t Student::getYear() {
@@ -54,7 +57,48 @@ size_t Student::getYear() {
     if ((personalIdentityNumber_[2] - '0') == 4 || (personalIdentityNumber_[2] - '0') == 5)
         return 21 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
     if ((personalIdentityNumber_[2] - '0') == 6 || (personalIdentityNumber_[2] - '0') == 7)
-        return 22 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');  
+        return 22 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0'); 
+    return 0; 
+}
+
+bool Student::isDayCodeCorrect(size_t year) {
+    //bool isLeap = std::chrono::year::is_leap(year);
+    size_t firstDigitOfMonth;
+    if ((personalIdentityNumber_[2] - '0') % 2 == 0) {
+        firstDigitOfMonth = 0;
+    }
+    if ((personalIdentityNumber_[2] - '0') % 2 != 0) {
+        firstDigitOfMonth = 1;
+    }
+
+    size_t month = firstDigitOfMonth * 10 + personalIdentityNumber_[3] - '0';
+    size_t day = (personalIdentityNumber_[4] - '0') * 10 + personalIdentityNumber_[5] - '0';
+
+    switch (month) {
+    case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+        if (day > 31) {
+            return false;
+        }
+        break;
+    case 4: case 6: case 9: case 11:
+        if (day > 30) {
+            return false;
+        }
+        break;
+    case 2:
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            if (day > 29) {
+                return false;
+            }
+        }
+        else {
+            if (day > 28) {
+                return false;
+            }
+        }
+        break;       
+    }
+    return true;
 }
 
 bool Student::validatePersonalIdentityNumber() {
