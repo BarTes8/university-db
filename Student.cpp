@@ -21,10 +21,12 @@ bool Student::operator==(const Student& student) const {
     return student.indexNumber_ == indexNumber_;
 }
 
+// PERSONAL IDENTITY NUMBER VALIDATION
 bool Student::hasPersonalIdentityNumberElevenCharacters() {
     if(personalIdentityNumber_.size() != 11) {
         return false;
     }
+    return true;
 }
 
 bool Student::areAllCharactersDigit() {
@@ -33,6 +35,7 @@ bool Student::areAllCharactersDigit() {
             return false;
         }
     }
+    return true;
 }
 
 bool Student::isMonthCodeCorrect() {
@@ -42,6 +45,7 @@ bool Student::isMonthCodeCorrect() {
     if ((personalIdentityNumber_[2] - '0') % 2 == 0 && (personalIdentityNumber_[3] - '0') == 0) {
         return false;
     }
+    return true;
 }
 
 size_t Student::getYear() {
@@ -55,8 +59,8 @@ size_t Student::getYear() {
         return 21 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
     if ((personalIdentityNumber_[2] - '0') == 6 || (personalIdentityNumber_[2] - '0') == 7)
         return 22 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');  
-}
 
+}
 
 
 bool Student::isGenderCorrect() {
@@ -66,9 +70,11 @@ bool Student::isGenderCorrect() {
     if (personalIdentityNumber_[9] % 2 != 0 && gender_ != "m") {
         return false;
     }
+    return true;
 }
 
 bool Student::isLastNumberCorrect() {
+    std::vector<int> index {1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
     std::vector<int> personalNumber;
     personalNumber.reserve(10);
     for (auto& el : personalIdentityNumber_) {
@@ -87,24 +93,65 @@ bool Student::isLastNumberCorrect() {
     return true;
 }
 
-bool Student::validatePersonalIdentityNumber() {
-   
-    
-   
-    
+ bool Student::validatePersonalIdentityNumber() {
+//    if (hasPersonalIdentityNumberElevenCharacters()
+//         && areAllCharactersDigit()
+//         && isMonthCodeCorrect()
+//         && isGenderCorrect()) {
+            
+//         }
+    return true;
+}
+
+// GENDER VALIDATION
+
+bool Student::validateGenderName() {
+    if (gender_ == "f" || gender_ == "F") {
+        gender_ = "F";
+        return true;
+    } 
+    if (gender_ == "m" || gender_ == "M") {
+        gender_ = "M";
+        return true;
+    } 
+    return false;
+}
+
+// NAME VALIDATION
+
+void Student::stringValidation(std::string& word) {
+    for (auto& letter : word) {
+        letter = std::tolower(letter);
+    }
+    for (size_t i = 0; i < word.size(); i++) {
+        if (i == 0) {
+            word[i] = std::toupper(word[i]);
+        }
+        if (word[i] == ' ' || word[i] == '-') {
+            word[i+1] = std::toupper(word[i+1]);
+        }
+    }
 }
 
 void Student::getStudent() {
     std::cout << "Name: ";
     getline(std::cin, name_);
+    stringValidation(name_); 
     std::cout << "Surname: ";
     getline(std::cin, surname_);
+    stringValidation(surname_);
     std::cout << "Address: ";
     getline(std::cin, address_);
+    stringValidation(address_);
     std::cout << "Index number: ";
     getline(std::cin, indexNumber_);
-    std::cout << "Personal identity number: ";
-    getline(std::cin, personalIdentityNumber_);
-    std::cout << "Gender: ";
-    getline(std::cin, gender_);
+    do {
+        std::cout << "Gender (f / m): ";
+        getline(std::cin, gender_);
+    } while (!validateGenderName());
+    do {
+        std::cout << "Personal identity number: ";
+        getline(std::cin, personalIdentityNumber_);
+    } while (!validatePersonalIdentityNumber());
+    
 }

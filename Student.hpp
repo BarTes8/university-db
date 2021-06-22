@@ -6,7 +6,7 @@
 #include <numeric>
 #include <string>
 #include <vector>
-class UniversityDB;
+
 class Student {
 public:
     Student();
@@ -31,6 +31,9 @@ public:
     bool validatePersonalIdentityNumber();
     bool isGenderCorrect();
     bool isLastNumberCorrect();
+
+    bool validateGenderName();
+    void stringValidation(std::string&);
 
 private:
     std::string name_{};
