@@ -29,6 +29,8 @@ public:
     bool isMonthCodeCorrect();
     size_t getYear();
     bool validatePersonalIdentityNumber();
+    bool isGenderCorrect();
+    bool isLastNumberCorrect();
 
 private:
     std::string name_{};

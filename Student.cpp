@@ -57,35 +57,41 @@ size_t Student::getYear() {
         return 22 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');  
 }
 
-bool Student::validatePersonalIdentityNumber() {
-    std::vector<int> index{1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
-    std::string personalIdentityNumber = "83020112345";
+
+
+bool Student::isGenderCorrect() {
+    if (personalIdentityNumber_[9] % 2 == 0 && gender_ != "k") {
+        return false;
+    }
+    if (personalIdentityNumber_[9] % 2 != 0 && gender_ != "m") {
+        return false;
+    }
+}
+
+bool Student::isLastNumberCorrect() {
     std::vector<int> personalNumber;
-    personalNumber.reserve(11);
-   
-    
-    if (personalIdentityNumber[9] % 2 == 0 && gender_ != "k") {
-        return false;
-    }
-    if (personalIdentityNumber[9] % 2 != 0 && gender_ != "m") {
-        return false;
-    }
-    for (auto& el : personalIdentityNumber) {
+    personalNumber.reserve(10);
+    for (auto& el : personalIdentityNumber_) {
         personalNumber.push_back(el - '0');
     }
     int sum = std::inner_product(begin(personalNumber), end(personalNumber) - 1, begin(index), 0);
-
     do {
         sum %= 10;
     } while (sum > 10);
-    if (sum == 0 && personalIdentityNumber[10] - '0' == 0) {
+    if (sum == 0 && personalIdentityNumber_[10] - '0' == 0) {
         return true;
     }
-
-    if (10 - sum != personalIdentityNumber[10]) {
+    if (10 - sum != personalIdentityNumber_[10]) {
         return false;
     }
     return true;
+}
+
+bool Student::validatePersonalIdentityNumber() {
+   
+    
+   
+    
 }
 
 void Student::getStudent() {
