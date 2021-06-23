@@ -33,7 +33,6 @@ public:
     bool validatePersonalIdentityNumber();
 
     void stringValidation(std::string&);
-    size_t extractYear();
 
 private:
     std::string name_{};

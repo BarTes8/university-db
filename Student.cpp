@@ -21,25 +21,25 @@ Student::Student(std::string name, std::string surname, std::string address, std
 
 void Student::getStudent() {
     std::cout << "Name: ";
-    getline(std::cin, name_);
+    std::getline(std::cin, name_);
     stringValidation(name_); 
     std::cout << "Surname: ";
-    getline(std::cin, surname_);
+    std::getline(std::cin, surname_);
     stringValidation(surname_);
     std::cout << "Address: ";
-    getline(std::cin, address_);
+    std::getline(std::cin, address_);
     stringValidation(address_);
     do {
         std::cout << "Index number: ";
-        getline(std::cin, indexNumber_);
+        std::getline(std::cin, indexNumber_);
     } while(!validateIndexNumber());
     do {
         std::cout << "Gender (f / m): ";
-        getline(std::cin, gender_);
+        std::getline(std::cin, gender_);
     } while (!validateGenderName());
     do {
         std::cout << "Personal identity number: ";
-        getline(std::cin, personalIdentityNumber_);
+        std::getline(std::cin, personalIdentityNumber_);
     } while (!validatePersonalIdentityNumber());   
 }
 
@@ -121,7 +121,6 @@ bool Student::isDayCodeCorrect() {
         break;       
     }
     return true;
-        return 22 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');  
 }
 
 bool Student::isGenderCorrect() {
@@ -180,6 +179,7 @@ bool Student::validateIndexNumber() {
     return true;
 }
 
+
 bool Student::validateGenderName() {
     if (gender_ == "f" || gender_ == "F") {
         gender_ = "F";
@@ -205,19 +205,4 @@ void Student::stringValidation(std::string& word) {
         }
     }
 }
-
-size_t Student::extractYear() {
-    if ((personalIdentityNumber_[2] - '0') == 8 || (personalIdentityNumber_[2] - '0') == 9)
-        return 18 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
-    if ((personalIdentityNumber_[2] - '0') == 0 || (personalIdentityNumber_[2] - '0') == 1)
-        return 19 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
-    if ((personalIdentityNumber_[2] - '0') == 2 || (personalIdentityNumber_[2] - '0') == 3)
-        return 20 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
-    if ((personalIdentityNumber_[2] - '0') == 4 || (personalIdentityNumber_[2] - '0') == 5)
-        return 21 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
-    if ((personalIdentityNumber_[2] - '0') == 6 || (personalIdentityNumber_[2] - '0') == 7)
-        return 22 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0'); 
-    return 0; 
-}
-
 
