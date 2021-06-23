@@ -74,7 +74,7 @@ bool Student::isMonthCodeCorrect() {
 }
 
 bool Student::isDayCodeCorrect() {
-    size_t year;
+    size_t year {};
     if ((personalIdentityNumber_[2] - '0') == 8 || (personalIdentityNumber_[2] - '0') == 9)
         year = 18 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
     if ((personalIdentityNumber_[2] - '0') == 0 || (personalIdentityNumber_[2] - '0') == 1)

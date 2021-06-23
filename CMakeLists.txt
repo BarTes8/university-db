@@ -10,4 +10,4 @@ set(SRC
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(${PROJECT_NAME} ${SRC})
-target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic -Wconversion -O3)
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic -O3)
