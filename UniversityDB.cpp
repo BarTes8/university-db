@@ -39,6 +39,7 @@ void UniversityDB::findStudentBySurname() {
     std::string searchedSurname{};
     std::cout << "Enter the name you are looking for: ";
     std::getline(std::cin, searchedSurname);
+    stringValidation(searchedSurname);
     size_t index{};
     bool guard = true;
     for (const auto& it : dataBase_) {
@@ -143,6 +144,20 @@ void UniversityDB::readStudentsFromFile() {
             getline(ss, personalIdentityNumber, '|');
             getline(ss, gender, '|');
             dataBase_.emplace_back(Student(name, surname, address, indexNumber, personalIdentityNumber, gender));
+        }
+    }
+}
+
+void UniversityDB::stringValidation(std::string& word) {
+    for (auto& letter : word) {
+        letter = std::tolower(letter);
+    }
+    for (size_t i = 0; i < word.size(); i++) {
+        if (i == 0) {
+            word[i] = std::toupper(word[i]);
+        }
+        if (word[i] == ' ' || word[i] == '-') {
+            word[i+1] = std::toupper(word[i+1]);
         }
     }
 }

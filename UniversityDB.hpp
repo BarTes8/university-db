@@ -27,6 +27,8 @@ public:
     void removeStudentFromFile(std::vector<Student>&);
     void readStudentsFromFile();
 
+    void stringValidation(std::string&);
+
 private:
     std::vector<Student> dataBase_;
 };
