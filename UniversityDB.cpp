@@ -16,12 +16,13 @@ void UniversityDB::addStudent() {
 
 void UniversityDB::showUniversityDB() {
     for (const auto& student : dataBase_) {
-        std::cout << student.getName() << '\n';
-        std::cout << student.getSurname() << '\n';
-        std::cout << student.getAddress() << '\n';
-        std::cout << student.getIndexNumber() << '\n';
-        std::cout << student.getPersonalIdentityNumber() << '\n';
-        std::cout << student.getGender() << '\n';
+        std::cout << "Name: " << student.getName() << '\n';
+        std::cout << "Surname: " << student.getSurname() << '\n';
+        std::cout << "Address: " << student.getAddress() << '\n';
+        std::cout << "Index number: " << student.getIndexNumber() << '\n';
+        std::cout << "Personal identity number: " << student.getPersonalIdentityNumber() << '\n';
+        std::cout << "Gender: " << student.getGender() << '\n';
+        std::cout << "=================================================\n";
     }
 }
 
