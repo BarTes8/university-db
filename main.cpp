@@ -7,7 +7,6 @@ void showMenu();
 
 int main() {
     UniversityDB universityDB;
-    universityDB.readStudentsFromFile();
     while (true) {
         selectOption(universityDB);
     }

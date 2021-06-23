@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cctype>
-#include <chrono>
 #include <iostream>
 #include <numeric>
 #include <string>
@@ -30,6 +29,7 @@ public:
     bool isGenderCorrect();
     bool isLastNumberCorrect();
     bool validateGenderName();
+    bool validateIndexNumber();
     bool validatePersonalIdentityNumber();
 
     void stringValidation(std::string&);

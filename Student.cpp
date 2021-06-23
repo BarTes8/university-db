@@ -29,8 +29,10 @@ void Student::getStudent() {
     std::cout << "Address: ";
     getline(std::cin, address_);
     stringValidation(address_);
-    std::cout << "Index number: ";
-    getline(std::cin, indexNumber_);
+    do {
+        std::cout << "Index number: ";
+        getline(std::cin, indexNumber_);
+    } while(!validateIndexNumber());
     do {
         std::cout << "Gender (f / m): ";
         getline(std::cin, gender_);
@@ -163,6 +165,19 @@ bool Student::validatePersonalIdentityNumber() {
         }
     std::cout << "Incorrect personal identity number. Try again." << '\n';
     return false;       
+}
+
+bool Student::validateIndexNumber() {
+    if(indexNumber_.size() != 6) {
+        std::cout << "Index number must have 6 digits.\n";
+        return false;
+    }
+    for (const auto el : indexNumber_) {
+        if (!isdigit(el)) {
+            return false;
+        }
+    }
+    return true;
 }
 
 bool Student::validateGenderName() {

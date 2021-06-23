@@ -12,7 +12,6 @@ void UniversityDB::addStudent() {
     Student student;
     student.getStudent();
     dataBase_.push_back(student);
-    writeStudentToFile(student);
 }
 
 void UniversityDB::showUniversityDB() {
@@ -81,7 +80,6 @@ void UniversityDB::removeStudentByIndexNumber() {
     for (auto& it : dataBase_) {
         if (it.getIndexNumber() == indexNumber) {
             dataBase_.erase(std::remove(dataBase_.begin(), dataBase_.end(), dataBase_[index]), dataBase_.end());
-            overwriteFile(dataBase_);
             guard = false;
         }
         index++;
@@ -103,19 +101,6 @@ void UniversityDB::sortStudentsBySurname() {
     showUniversityDB();
 }
 
-void UniversityDB::writeStudentToFile(Student& student) {
-    std::fstream file("UniversityDataBase.txt", file.out | file.app);
-    if (file.is_open()) {
-        file << student.getName() << '|';
-        file << student.getSurname() << '|';
-        file << student.getAddress() << '|';
-        file << student.getIndexNumber() << '|';
-        file << student.getPersonalIdentityNumber() << '|';
-        file << student.getGender() << '|' << '\n';
-        file.close();
-    }
-}
-
 void UniversityDB::writeStudentToFileManually() {
     std::string filename;
     std::ofstream file;
@@ -130,40 +115,29 @@ void UniversityDB::writeStudentToFileManually() {
         file << student.getAddress() << '|';
         file << student.getIndexNumber() << '|';
         file << student.getPersonalIdentityNumber() << '|';
-        file << student.getGender() << '|' << '\n'; 
+        file << student.getGender() << '|' << '\n';
     }
     file.close();
 }
 
-void UniversityDB::overwriteFile(std::vector<Student>& database) {
-    std::fstream file("UniversityDataBase.txt", file.out);
-    if (file.is_open()) {
-        for (auto student : database) {
-            file << student.getName() << '|';
-            file << student.getSurname() << '|';
-            file << student.getAddress() << '|';
-            file << student.getIndexNumber() << '|';
-            file << student.getPersonalIdentityNumber() << '|';
-            file << student.getGender() << '|' << '\n';
-        }
-        file.close();
-    }
-}
-
-void UniversityDB::readStudentsFromFile() {
+void UniversityDB::readFromFileManually() {
     std::string name, surname, address, indexNumber, personalIdentityNumber, gender, line;
-    std::ifstream file("UniversityDataBase.txt", file.in);
-    if (file.is_open()) {
-        while (getline(file, line)) {
-            std::stringstream ss(line);
-            getline(ss, name, '|');
-            getline(ss, surname, '|');
-            getline(ss, address, '|');
-            getline(ss, indexNumber, '|');
-            getline(ss, personalIdentityNumber, '|');
-            getline(ss, gender, '|');
-            dataBase_.emplace_back(Student(name, surname, address, indexNumber, personalIdentityNumber, gender));
-        }
+    std::string filename;
+    std::ifstream file;
+    do {
+        std::cout << "Enter filename: ";
+        getline(std::cin, filename);
+        file.open(filename);
+    } while (file.fail());
+    while (getline(file, line)) {
+        std::stringstream ss(line);
+        getline(ss, name, '|');
+        getline(ss, surname, '|');
+        getline(ss, address, '|');
+        getline(ss, indexNumber, '|');
+        getline(ss, personalIdentityNumber, '|');
+        getline(ss, gender, '|');
+        dataBase_.emplace_back(Student(name, surname, address, indexNumber, personalIdentityNumber, gender));
     }
 }
 
@@ -176,7 +150,7 @@ void UniversityDB::stringValidation(std::string& word) {
             word[i] = std::toupper(word[i]);
         }
         if (word[i] == ' ' || word[i] == '-') {
-            word[i+1] = std::toupper(word[i+1]);
+            word[i + 1] = std::toupper(word[i + 1]);
         }
     }
 }

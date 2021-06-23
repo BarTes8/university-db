@@ -43,6 +43,7 @@ void selectOption(UniversityDB& universityDB) {
         universityDB.removeStudentByIndexNumber();
         break;
     case '8':
+        universityDB.readFromFileManually();
         break;
     case '9':
         universityDB.writeStudentToFileManually();

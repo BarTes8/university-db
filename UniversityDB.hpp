@@ -12,6 +12,7 @@ public:
     ~UniversityDB();
 
     std::vector<Student> getDataBase() const { return dataBase_; }
+    Student getStudentData(std::string);
 
     void addStudent();
     void showUniversityDB();
@@ -21,16 +22,11 @@ public:
     void sortStudentsByPersonalIdentityNumber();
     void sortStudentsBySurname();
     void removeStudentByIndexNumber();
-    
-    Student getStudentData(std::string);
-    void writeStudentToFile(Student&);
-    void overwriteFile(std::vector<Student>&);
-    void readStudentsFromFile();
-
-    void writeStudentToFileManually();
-
     void stringValidation(std::string&);
-
+   
+    void readFromFileManually();
+    void writeStudentToFileManually();
+    
 private:
     std::vector<Student> dataBase_;
 };
