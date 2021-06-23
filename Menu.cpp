@@ -17,7 +17,7 @@ void selectOption(UniversityDB& universityDB) {
     printMenu();
     auto select = std::getchar();
     std::cin.clear();
-    std::cin.ignore(10, '\n');
+    std::cin.ignore(100, '\n');
     switch (select) {
     case '1':
         universityDB.addStudent();

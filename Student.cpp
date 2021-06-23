@@ -1,27 +1,50 @@
 #include "Student.hpp"
 
 Student::Student() {
-    name_ = "";
-    surname_ = "";
-    address_ = "";
-    indexNumber_ = "";
-    personalIdentityNumber_ = "";
-    gender_ = "";
-    std::cout << "Student c-tor" << '\n';
+    name_ = {};
+    surname_ = {};
+    address_ = {};
+    indexNumber_ = {};
+    personalIdentityNumber_ = {};
+    gender_ = {};
 }
 
-Student::~Student() {
-    std::cout << "Student d-tor" << '\n';
-}
+Student::Student(std::string name, std::string surname, std::string address, std::string indexNumber, 
+                 std::string personalIdentityNumber, std::string gender)
+    : name_(name)
+    , surname_(surname)
+    , address_(address)
+    , indexNumber_(indexNumber)
+    , personalIdentityNumber_(personalIdentityNumber)
+    , gender_(gender)
+{}
 
-Student::Student(std::string name, std::string surname, std::string address, std::string indexNumber, std::string personalIdentityNumber, std::string gender)
-    : name_(name), surname_(surname), address_(address), indexNumber_(indexNumber), personalIdentityNumber_(personalIdentityNumber), gender_(gender) {}
+void Student::getStudent() {
+    std::cout << "Name: ";
+    getline(std::cin, name_);
+    stringValidation(name_); 
+    std::cout << "Surname: ";
+    getline(std::cin, surname_);
+    stringValidation(surname_);
+    std::cout << "Address: ";
+    getline(std::cin, address_);
+    stringValidation(address_);
+    std::cout << "Index number: ";
+    getline(std::cin, indexNumber_);
+    do {
+        std::cout << "Gender (f / m): ";
+        getline(std::cin, gender_);
+    } while (!validateGenderName());
+    do {
+        std::cout << "Personal identity number: ";
+        getline(std::cin, personalIdentityNumber_);
+    } while (!validatePersonalIdentityNumber());   
+}
 
 bool Student::operator==(const Student& student) const {
     return student.indexNumber_ == indexNumber_;
 }
 
-// PERSONAL IDENTITY NUMBER VALIDATION
 bool Student::hasPersonalIdentityNumberElevenCharacters() {
     if(personalIdentityNumber_.size() != 11) {
         return false;
@@ -48,22 +71,18 @@ bool Student::isMonthCodeCorrect() {
     return true;
 }
 
-size_t Student::getYear() {
+bool Student::isDayCodeCorrect() {
+    size_t year;
     if ((personalIdentityNumber_[2] - '0') == 8 || (personalIdentityNumber_[2] - '0') == 9)
-        return 18 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
+        year = 18 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
     if ((personalIdentityNumber_[2] - '0') == 0 || (personalIdentityNumber_[2] - '0') == 1)
-        return 19 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
+        year = 19 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
     if ((personalIdentityNumber_[2] - '0') == 2 || (personalIdentityNumber_[2] - '0') == 3)
-        return 20 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
+        year = 20 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
     if ((personalIdentityNumber_[2] - '0') == 4 || (personalIdentityNumber_[2] - '0') == 5)
-        return 21 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
+        year = 21 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
     if ((personalIdentityNumber_[2] - '0') == 6 || (personalIdentityNumber_[2] - '0') == 7)
-        return 22 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0'); 
-    return 0; 
-}
-
-bool Student::isDayCodeCorrect(size_t year) {
-    //bool isLeap = std::chrono::year::is_leap(year);
+        year = 22 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0'); 
     size_t firstDigitOfMonth;
     if ((personalIdentityNumber_[2] - '0') % 2 == 0) {
         firstDigitOfMonth = 0;
@@ -101,15 +120,13 @@ bool Student::isDayCodeCorrect(size_t year) {
     }
     return true;
         return 22 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');  
-
 }
 
-
 bool Student::isGenderCorrect() {
-    if (personalIdentityNumber_[9] % 2 == 0 && gender_ != "k") {
+    if (personalIdentityNumber_[9] % 2 == 0 && gender_ != "F") {
         return false;
     }
-    if (personalIdentityNumber_[9] % 2 != 0 && gender_ != "m") {
+    if (personalIdentityNumber_[9] % 2 != 0 && gender_ != "M") {
         return false;
     }
     return true;
@@ -129,23 +146,23 @@ bool Student::isLastNumberCorrect() {
     if (sum == 0 && personalIdentityNumber_[10] - '0' == 0) {
         return true;
     }
-    if (10 - sum != personalIdentityNumber_[10]) {
+    if (10 - sum != personalIdentityNumber_[10] - '0') {
         return false;
     }
     return true;
 }
 
- bool Student::validatePersonalIdentityNumber() {
-//    if (hasPersonalIdentityNumberElevenCharacters()
-//         && areAllCharactersDigit()
-//         && isMonthCodeCorrect()
-//         && isGenderCorrect()) {
-            
-//         }
-    return true;
+bool Student::validatePersonalIdentityNumber() {
+   if (hasPersonalIdentityNumberElevenCharacters()
+        && areAllCharactersDigit()
+        && isMonthCodeCorrect()
+        && isGenderCorrect()
+        && isDayCodeCorrect() 
+        && isLastNumberCorrect()) {
+            return true;
+        }
+    return false;       
 }
-
-// GENDER VALIDATION
 
 bool Student::validateGenderName() {
     if (gender_ == "f" || gender_ == "F") {
@@ -158,8 +175,6 @@ bool Student::validateGenderName() {
     } 
     return false;
 }
-
-// NAME VALIDATION
 
 void Student::stringValidation(std::string& word) {
     for (auto& letter : word) {
@@ -175,25 +190,18 @@ void Student::stringValidation(std::string& word) {
     }
 }
 
-void Student::getStudent() {
-    std::cout << "Name: ";
-    getline(std::cin, name_);
-    stringValidation(name_); 
-    std::cout << "Surname: ";
-    getline(std::cin, surname_);
-    stringValidation(surname_);
-    std::cout << "Address: ";
-    getline(std::cin, address_);
-    stringValidation(address_);
-    std::cout << "Index number: ";
-    getline(std::cin, indexNumber_);
-    do {
-        std::cout << "Gender (f / m): ";
-        getline(std::cin, gender_);
-    } while (!validateGenderName());
-    do {
-        std::cout << "Personal identity number: ";
-        getline(std::cin, personalIdentityNumber_);
-    } while (!validatePersonalIdentityNumber());
-    
+size_t Student::extractYear() {
+    if ((personalIdentityNumber_[2] - '0') == 8 || (personalIdentityNumber_[2] - '0') == 9)
+        return 18 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
+    if ((personalIdentityNumber_[2] - '0') == 0 || (personalIdentityNumber_[2] - '0') == 1)
+        return 19 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
+    if ((personalIdentityNumber_[2] - '0') == 2 || (personalIdentityNumber_[2] - '0') == 3)
+        return 20 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
+    if ((personalIdentityNumber_[2] - '0') == 4 || (personalIdentityNumber_[2] - '0') == 5)
+        return 21 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');
+    if ((personalIdentityNumber_[2] - '0') == 6 || (personalIdentityNumber_[2] - '0') == 7)
+        return 22 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0'); 
+    return 0; 
 }
+
+

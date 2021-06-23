@@ -12,7 +12,7 @@ public:
     Student();
     Student(std::string, std::string, std::string, std::string, std::string, std::string);
 
-    ~Student();
+    void getStudent();
 
     bool operator==(const Student&) const;
     
@@ -23,18 +23,17 @@ public:
     std::string getPersonalIdentityNumber() const { return personalIdentityNumber_; }
     std::string getGender() const { return gender_; }
 
-    void getStudent();
     bool hasPersonalIdentityNumberElevenCharacters();
     bool areAllCharactersDigit();
     bool isMonthCodeCorrect();
-    size_t getYear();
-    bool isDayCodeCorrect(size_t);
-    bool validatePersonalIdentityNumber();
+    bool isDayCodeCorrect();
     bool isGenderCorrect();
     bool isLastNumberCorrect();
-
     bool validateGenderName();
+    bool validatePersonalIdentityNumber();
+
     void stringValidation(std::string&);
+    size_t extractYear();
 
 private:
     std::string name_{};
