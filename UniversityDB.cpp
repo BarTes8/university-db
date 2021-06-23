@@ -81,7 +81,7 @@ void UniversityDB::removeStudentByIndexNumber() {
     for (auto& it : dataBase_) {
         if (it.getIndexNumber() == indexNumber) {
             dataBase_.erase(std::remove(dataBase_.begin(), dataBase_.end(), dataBase_[index]), dataBase_.end());
-            removeStudentFromFile(dataBase_);
+            overwriteFile(dataBase_);
             guard = false;
         }
         index++;
@@ -116,7 +116,7 @@ void UniversityDB::writeStudentToFile(Student& student) {
     }
 }
 
-void UniversityDB::removeStudentFromFile(std::vector<Student>& database) {
+void UniversityDB::overwriteFile(std::vector<Student>& database) {
     std::fstream file("UniversityDataBase.txt", file.out);
     if (file.is_open()) {
         for (auto student : database) {

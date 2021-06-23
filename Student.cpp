@@ -161,6 +161,7 @@ bool Student::validatePersonalIdentityNumber() {
         && isLastNumberCorrect()) {
             return true;
         }
+    std::cout << "Incorrect personal identity number. Try again." << '\n';
     return false;       
 }
 

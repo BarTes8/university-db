@@ -24,7 +24,7 @@ public:
     
     Student getStudentData(std::string);
     void writeStudentToFile(Student&);
-    void removeStudentFromFile(std::vector<Student>&);
+    void overwriteFile(std::vector<Student>&);
     void readStudentsFromFile();
 
     void stringValidation(std::string&);
