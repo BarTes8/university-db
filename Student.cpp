@@ -10,10 +10,6 @@ Student::Student() {
     std::cout << "Student c-tor" << '\n';
 }
 
-Student::~Student() {
-    std::cout << "Student d-tor" << '\n';
-}
-
 Student::Student(std::string name, std::string surname, std::string address, std::string indexNumber, std::string personalIdentityNumber, std::string gender)
     : name_(name), surname_(surname), address_(address), indexNumber_(indexNumber), personalIdentityNumber_(personalIdentityNumber), gender_(gender) {}
 
@@ -21,7 +17,6 @@ bool Student::operator==(const Student& student) const {
     return student.indexNumber_ == indexNumber_;
 }
 
-// PERSONAL IDENTITY NUMBER VALIDATION
 bool Student::hasPersonalIdentityNumberElevenCharacters() {
     if(personalIdentityNumber_.size() != 11) {
         return false;
@@ -61,7 +56,6 @@ size_t Student::getYear() {
         return 22 * 100 + (personalIdentityNumber_[0] - '0') * 10 + (personalIdentityNumber_[1] - '0');  
 
 }
-
 
 bool Student::isGenderCorrect() {
     if (personalIdentityNumber_[9] % 2 == 0 && gender_ != "k") {
@@ -103,7 +97,7 @@ bool Student::isLastNumberCorrect() {
     return true;
 }
 
-// GENDER VALIDATION
+
 
 bool Student::validateGenderName() {
     if (gender_ == "f" || gender_ == "F") {
@@ -116,8 +110,6 @@ bool Student::validateGenderName() {
     } 
     return false;
 }
-
-// NAME VALIDATION
 
 void Student::stringValidation(std::string& word) {
     for (auto& letter : word) {

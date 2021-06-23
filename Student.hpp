@@ -12,8 +12,6 @@ public:
     Student();
     Student(std::string, std::string, std::string, std::string, std::string, std::string);
 
-    ~Student();
-
     bool operator==(const Student&) const;
     
     std::string getName() const { return name_; }
