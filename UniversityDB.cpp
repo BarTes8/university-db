@@ -116,6 +116,25 @@ void UniversityDB::writeStudentToFile(Student& student) {
     }
 }
 
+void UniversityDB::writeStudentToFileManually() {
+    std::string filename;
+    std::ofstream file;
+    do {
+        std::cout << "Enter filename: ";
+        getline(std::cin, filename);
+        file.open(filename);
+    } while (file.fail());
+    for (const auto& student : dataBase_) {
+        file << student.getName() << '|';
+        file << student.getSurname() << '|';
+        file << student.getAddress() << '|';
+        file << student.getIndexNumber() << '|';
+        file << student.getPersonalIdentityNumber() << '|';
+        file << student.getGender() << '|' << '\n'; 
+    }
+    file.close();
+}
+
 void UniversityDB::overwriteFile(std::vector<Student>& database) {
     std::fstream file("UniversityDataBase.txt", file.out);
     if (file.is_open()) {

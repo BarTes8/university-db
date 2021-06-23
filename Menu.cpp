@@ -9,7 +9,9 @@ void printMenu() {
     std::cout << "5. Sort by personal identity number\n";
     std::cout << "6. Sort by surname\n";
     std::cout << "7. Delete by index number\n";
-    std::cout << "8. Exit\n";
+    std::cout << "8. Read from file\n";
+    std::cout << "9. Write to file\n";
+    std::cout << "0. Exit\n";
     std::cout << "Choose an option: ";
 }
 
@@ -41,6 +43,11 @@ void selectOption(UniversityDB& universityDB) {
         universityDB.removeStudentByIndexNumber();
         break;
     case '8':
+        break;
+    case '9':
+        universityDB.writeStudentToFileManually();
+        break;
+    case '0':
         exit(0);
     }
 }

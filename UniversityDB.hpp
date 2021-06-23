@@ -27,6 +27,8 @@ public:
     void overwriteFile(std::vector<Student>&);
     void readStudentsFromFile();
 
+    void writeStudentToFileManually();
+
     void stringValidation(std::string&);
 
 private:
