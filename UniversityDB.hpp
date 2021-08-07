@@ -22,11 +22,12 @@ public:
     void sortStudentsByPersonalIdentityNumber();
     void sortStudentsBySurname();
     void removeStudentByIndexNumber();
-    void stringValidation(std::string&);
-   
+  
+  // TO DO - ZROBIC KLASE OBSLUGUJACA PLIKI
     void readFromFileManually();
     void writeStudentToFileManually();
     
 private:
     std::vector<Student> dataBase_;
+    void stringValidation(std::string&);
 };

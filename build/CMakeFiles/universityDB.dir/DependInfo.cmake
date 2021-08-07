@@ -4,10 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/bartes/university/Menu.cpp" "/home/bartes/university/build/CMakeFiles/universityDB.dir/Menu.cpp.o"
-  "/home/bartes/university/Student.cpp" "/home/bartes/university/build/CMakeFiles/universityDB.dir/Student.cpp.o"
-  "/home/bartes/university/UniversityDB.cpp" "/home/bartes/university/build/CMakeFiles/universityDB.dir/UniversityDB.cpp.o"
-  "/home/bartes/university/main.cpp" "/home/bartes/university/build/CMakeFiles/universityDB.dir/main.cpp.o"
+  "/home/morethanadc/university/university-db/Menu.cpp" "/home/morethanadc/university/university-db/build/CMakeFiles/universityDB.dir/Menu.cpp.o"
+  "/home/morethanadc/university/university-db/Person.cpp" "/home/morethanadc/university/university-db/build/CMakeFiles/universityDB.dir/Person.cpp.o"
+  "/home/morethanadc/university/university-db/Student.cpp" "/home/morethanadc/university/university-db/build/CMakeFiles/universityDB.dir/Student.cpp.o"
+  "/home/morethanadc/university/university-db/UniversityDB.cpp" "/home/morethanadc/university/university-db/build/CMakeFiles/universityDB.dir/UniversityDB.cpp.o"
+  "/home/morethanadc/university/university-db/main.cpp" "/home/morethanadc/university/university-db/build/CMakeFiles/universityDB.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

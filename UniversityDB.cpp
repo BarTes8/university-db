@@ -9,7 +9,7 @@ UniversityDB::~UniversityDB() {
 }
 
 void UniversityDB::addStudent() {
-    Student student;
+    Student student("1","2","3","4","5","6");
     student.getStudent();
     dataBase_.push_back(student);
 }

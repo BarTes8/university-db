@@ -6,47 +6,55 @@
 
 #IncludeRegexTransform: 
 
-/home/bartes/university/Menu.cpp
+/home/morethanadc/university/university-db/Menu.cpp
 Menu.hpp
-/home/bartes/university/Menu.hpp
+/home/morethanadc/university/university-db/Menu.hpp
 
-/home/bartes/university/Menu.hpp
+/home/morethanadc/university/university-db/Menu.hpp
 UniversityDB.hpp
-/home/bartes/university/UniversityDB.hpp
+/home/morethanadc/university/university-db/UniversityDB.hpp
 iostream
 -
 
-/home/bartes/university/Student.cpp
+/home/morethanadc/university/university-db/Student.cpp
 Student.hpp
-/home/bartes/university/Student.hpp
+/home/morethanadc/university/university-db/Student.hpp
 
-/home/bartes/university/Student.hpp
+/home/morethanadc/university/university-db/Student.hpp
+cctype
+-
+iostream
+-
+numeric
+-
 string
--
-iostream
--
-
-/home/bartes/university/UniversityDB.cpp
-UniversityDB.hpp
-/home/bartes/university/UniversityDB.hpp
-
-/home/bartes/university/UniversityDB.hpp
-Student.hpp
-/home/bartes/university/Student.hpp
-algorithm
--
-fstream
 -
 vector
 -
 
-/home/bartes/university/main.cpp
+/home/morethanadc/university/university-db/UniversityDB.cpp
+UniversityDB.hpp
+/home/morethanadc/university/university-db/UniversityDB.hpp
+
+/home/morethanadc/university/university-db/UniversityDB.hpp
+algorithm
+-
+fstream
+-
+sstream
+-
+vector
+-
+Student.hpp
+/home/morethanadc/university/university-db/Student.hpp
+
+/home/morethanadc/university/university-db/main.cpp
 iostream
 -
 Menu.hpp
-/home/bartes/university/Menu.hpp
+/home/morethanadc/university/university-db/Menu.hpp
 Student.hpp
-/home/bartes/university/Student.hpp
+/home/morethanadc/university/university-db/Student.hpp
 UniversityDB.hpp
-/home/bartes/university/UniversityDB.hpp
+/home/morethanadc/university/university-db/UniversityDB.hpp
 

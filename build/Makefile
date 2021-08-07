@@ -48,13 +48,59 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bartes/university
+CMAKE_SOURCE_DIR = /home/morethanadc/university/university-db
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bartes/university/build
+CMAKE_BINARY_DIR = /home/morethanadc/university/university-db/build
 
 #=============================================================================
 # Targets provided globally by CMake.
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -78,11 +124,22 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bartes/university/build/CMakeFiles /home/bartes/university/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/morethanadc/university/university-db/build/CMakeFiles /home/morethanadc/university/university-db/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bartes/university/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/morethanadc/university/university-db/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named universityDB-ut
+
+# Build rule for target.
+universityDB-ut: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 universityDB-ut
+.PHONY : universityDB-ut
+
+# fast build rule for target.
+universityDB-ut/fast:
+	$(MAKE) -f CMakeFiles/universityDB-ut.dir/build.make CMakeFiles/universityDB-ut.dir/build
+.PHONY : universityDB-ut/fast
+
+#=============================================================================
 # Target rules for targets named universityDB
 
 # Build rule for target.
@@ -123,12 +193,65 @@ universityDB/fast:
 	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/build
 .PHONY : universityDB/fast
 
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
 Menu.o: Menu.cpp.o
 
 .PHONY : Menu.o
 
 # target to build an object file
 Menu.cpp.o:
+	$(MAKE) -f CMakeFiles/universityDB-ut.dir/build.make CMakeFiles/universityDB-ut.dir/Menu.cpp.o
 	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/Menu.cpp.o
 .PHONY : Menu.cpp.o
 
@@ -138,6 +261,7 @@ Menu.i: Menu.cpp.i
 
 # target to preprocess a source file
 Menu.cpp.i:
+	$(MAKE) -f CMakeFiles/universityDB-ut.dir/build.make CMakeFiles/universityDB-ut.dir/Menu.cpp.i
 	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/Menu.cpp.i
 .PHONY : Menu.cpp.i
 
@@ -147,8 +271,36 @@ Menu.s: Menu.cpp.s
 
 # target to generate assembly for a file
 Menu.cpp.s:
+	$(MAKE) -f CMakeFiles/universityDB-ut.dir/build.make CMakeFiles/universityDB-ut.dir/Menu.cpp.s
 	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/Menu.cpp.s
 .PHONY : Menu.cpp.s
+
+Person.o: Person.cpp.o
+
+.PHONY : Person.o
+
+# target to build an object file
+Person.cpp.o:
+	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/Person.cpp.o
+.PHONY : Person.cpp.o
+
+Person.i: Person.cpp.i
+
+.PHONY : Person.i
+
+# target to preprocess a source file
+Person.cpp.i:
+	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/Person.cpp.i
+.PHONY : Person.cpp.i
+
+Person.s: Person.cpp.s
+
+.PHONY : Person.s
+
+# target to generate assembly for a file
+Person.cpp.s:
+	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/Person.cpp.s
+.PHONY : Person.cpp.s
 
 Student.o: Student.cpp.o
 
@@ -156,6 +308,7 @@ Student.o: Student.cpp.o
 
 # target to build an object file
 Student.cpp.o:
+	$(MAKE) -f CMakeFiles/universityDB-ut.dir/build.make CMakeFiles/universityDB-ut.dir/Student.cpp.o
 	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/Student.cpp.o
 .PHONY : Student.cpp.o
 
@@ -165,6 +318,7 @@ Student.i: Student.cpp.i
 
 # target to preprocess a source file
 Student.cpp.i:
+	$(MAKE) -f CMakeFiles/universityDB-ut.dir/build.make CMakeFiles/universityDB-ut.dir/Student.cpp.i
 	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/Student.cpp.i
 .PHONY : Student.cpp.i
 
@@ -174,6 +328,7 @@ Student.s: Student.cpp.s
 
 # target to generate assembly for a file
 Student.cpp.s:
+	$(MAKE) -f CMakeFiles/universityDB-ut.dir/build.make CMakeFiles/universityDB-ut.dir/Student.cpp.s
 	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/Student.cpp.s
 .PHONY : Student.cpp.s
 
@@ -183,6 +338,7 @@ UniversityDB.o: UniversityDB.cpp.o
 
 # target to build an object file
 UniversityDB.cpp.o:
+	$(MAKE) -f CMakeFiles/universityDB-ut.dir/build.make CMakeFiles/universityDB-ut.dir/UniversityDB.cpp.o
 	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/UniversityDB.cpp.o
 .PHONY : UniversityDB.cpp.o
 
@@ -192,6 +348,7 @@ UniversityDB.i: UniversityDB.cpp.i
 
 # target to preprocess a source file
 UniversityDB.cpp.i:
+	$(MAKE) -f CMakeFiles/universityDB-ut.dir/build.make CMakeFiles/universityDB-ut.dir/UniversityDB.cpp.i
 	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/UniversityDB.cpp.i
 .PHONY : UniversityDB.cpp.i
 
@@ -201,6 +358,7 @@ UniversityDB.s: UniversityDB.cpp.s
 
 # target to generate assembly for a file
 UniversityDB.cpp.s:
+	$(MAKE) -f CMakeFiles/universityDB-ut.dir/build.make CMakeFiles/universityDB-ut.dir/UniversityDB.cpp.s
 	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/UniversityDB.cpp.s
 .PHONY : UniversityDB.cpp.s
 
@@ -231,18 +389,58 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/universityDB.dir/build.make CMakeFiles/universityDB.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+test.ut.o: test.ut.cpp.o
+
+.PHONY : test.ut.o
+
+# target to build an object file
+test.ut.cpp.o:
+	$(MAKE) -f CMakeFiles/universityDB-ut.dir/build.make CMakeFiles/universityDB-ut.dir/test.ut.cpp.o
+.PHONY : test.ut.cpp.o
+
+test.ut.i: test.ut.cpp.i
+
+.PHONY : test.ut.i
+
+# target to preprocess a source file
+test.ut.cpp.i:
+	$(MAKE) -f CMakeFiles/universityDB-ut.dir/build.make CMakeFiles/universityDB-ut.dir/test.ut.cpp.i
+.PHONY : test.ut.cpp.i
+
+test.ut.s: test.ut.cpp.s
+
+.PHONY : test.ut.s
+
+# target to generate assembly for a file
+test.ut.cpp.s:
+	$(MAKE) -f CMakeFiles/universityDB-ut.dir/build.make CMakeFiles/universityDB-ut.dir/test.ut.cpp.s
+.PHONY : test.ut.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/strip"
+	@echo "... install/local"
+	@echo "... install"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... test"
+	@echo "... universityDB-ut"
 	@echo "... universityDB"
+	@echo "... gmock_main"
+	@echo "... gmock"
+	@echo "... gtest_main"
+	@echo "... gtest"
 	@echo "... Menu.o"
 	@echo "... Menu.i"
 	@echo "... Menu.s"
+	@echo "... Person.o"
+	@echo "... Person.i"
+	@echo "... Person.s"
 	@echo "... Student.o"
 	@echo "... Student.i"
 	@echo "... Student.s"
@@ -252,6 +450,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... test.ut.o"
+	@echo "... test.ut.i"
+	@echo "... test.ut.s"
 .PHONY : help
 
 

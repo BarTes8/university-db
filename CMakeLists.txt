@@ -6,6 +6,7 @@ set(SRC
     Menu.cpp
     Student.cpp
     UniversityDB.cpp
+    Person.cpp
 )
 set(CMAKE_CXX_STANDARD 20)
 
