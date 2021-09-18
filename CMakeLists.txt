@@ -4,6 +4,7 @@ project(universityDB)
 set(SRC
     main.cpp
     Menu.cpp
+    Person.cpp
     Student.cpp
     UniversityDB.cpp
 )
@@ -24,6 +25,6 @@ FetchContent_MakeAvailable(googletest)
 
 # Now simply link against gtest or gtest_main as needed. Eg
 enable_testing() 
-add_executable(${PROJECT_NAME}-ut test.ut.cpp Menu.cpp Student.cpp UniversityDB.cpp)
+add_executable(${PROJECT_NAME}-ut test.ut.cpp Menu.cpp Student.cpp UniversityDB.cpp Person.cpp)
 target_link_libraries(${PROJECT_NAME}-ut gtest_main)
 add_test(NAME s${PROJECT_NAME}_test COMMAND ${PROJECT_NAME}-ut)

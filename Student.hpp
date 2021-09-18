@@ -6,10 +6,18 @@
 #include <string>
 #include <vector>
 
-class Student {
+#include "Person.hpp"
+
+class Student : public Person {
 public:
+    using Person::Person;
     Student();
-    Student(std::string, std::string, std::string, std::string, std::string, std::string);
+    Student(std::string name, 
+            std::string surname, 
+            std::string address, 
+            std::string personalIdentityNumber, 
+            std::string gender, 
+            std::string indexNumber);
 
     void getStudent();
 
@@ -35,10 +43,5 @@ public:
     void stringValidation(std::string&);
 
 private:
-    std::string name_{};
-    std::string surname_{};
-    std::string address_{};
     std::string indexNumber_{};
-    std::string personalIdentityNumber_{};
-    std::string gender_{};
 };

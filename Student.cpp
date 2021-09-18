@@ -1,22 +1,27 @@
 #include "Student.hpp"
 
-Student::Student() {
-    name_ = {};
-    surname_ = {};
-    address_ = {};
-    indexNumber_ = {};
-    personalIdentityNumber_ = {};
-    gender_ = {};
-}
+// Student::Student() {
+//     name_ = {};
+//     surname_ = {};
+//     address_ = {};
+//     indexNumber_ = {};
+//     personalIdentityNumber_ = {};
+//     gender_ = {};
+// }
 
-Student::Student(std::string name, std::string surname, std::string address, std::string indexNumber, 
-                 std::string personalIdentityNumber, std::string gender)
-    : name_(name)
-    , surname_(surname)
-    , address_(address)
+Student::Student(std::string name, 
+                 std::string surname, 
+                 std::string address,
+                 std::string personalIdentityNumber, 
+                 std::string gender,
+                 std::string indexNumber) 
+    // : name_(name)
+    // , surname_(surname)
+    // , address_(address)
+    // , personalIdentityNumber_(personalIdentityNumber)
+    // , gender(gender)
+    : Person::Person(name, surname, address, personalIdentityNumber, gender)
     , indexNumber_(indexNumber)
-    , personalIdentityNumber_(personalIdentityNumber)
-    , gender_(gender)
 {}
 
 void Student::getStudent() {
