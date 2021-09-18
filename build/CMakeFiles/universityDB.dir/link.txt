@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/universityDB.dir/main.cpp.o CMakeFiles/universityDB.dir/Menu.cpp.o CMakeFiles/universityDB.dir/Student.cpp.o CMakeFiles/universityDB.dir/UniversityDB.cpp.o  -o universityDB 
