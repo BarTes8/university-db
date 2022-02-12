@@ -6,10 +6,10 @@
 void showMenu();
 
 int main() {
-    UniversityDB universityDB;
-    while (true) {
-        selectOption(universityDB);
-    }
+    // UniversityDB universityDB;
+    // while (true) {
+        // selectOption(universityDB);
+    // }
 
     return 0;
 }

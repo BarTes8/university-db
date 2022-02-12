@@ -11,7 +11,6 @@
 class Student : public Person {
 public:
     using Person::Person;
-    Student();
     Student(std::string name, 
             std::string surname, 
             std::string address, 
@@ -23,13 +22,8 @@ public:
 
     bool operator==(const Student&) const;
     
-    std::string getName() const { return name_; }
-    std::string getSurname() const { return surname_; }
-    std::string getAddress() const { return address_; }
     std::string getIndexNumber() const { return indexNumber_; }
-    std::string getPersonalIdentityNumber() const { return personalIdentityNumber_; }
-    std::string getGender() const { return gender_; }
-
+   
     bool hasPersonalIdentityNumberElevenCharacters();
     bool areAllCharactersDigit();
     bool isMonthCodeCorrect();
