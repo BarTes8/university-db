@@ -7,7 +7,7 @@ public:
            std::string surname, 
            std::string address, 
            std::string personalIdentityNumber, 
-           std::string gender) {} 
+           std::string gender);
 
 protected:
     std::string name_{};
