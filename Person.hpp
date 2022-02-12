@@ -11,6 +11,8 @@ public:
            std::string gender);
 
     virtual ~Person() = default;
+    virtual int getSalary() const;
+    virtual void setSalary(int);
 
     std::string getName() const { return name_; }
     std::string getSurname() const { return surname_; }

@@ -5,7 +5,7 @@ Employee::Employee(std::string name,
              std::string address,
              std::string personalIdentityNumber,
              std::string gender,
-             std::string salary)
+             int salary)
     : Person::Person(name, surname, address, personalIdentityNumber, gender)
     , salary_(salary)
 {}

@@ -7,8 +7,8 @@ public:
              std::string address,
              std::string personalIdentityNumber,
              std::string gender,
-             std::string salary);
-             
+             int salary);
+
 private:
-    std::string salary_;
+    int salary_;
 };

@@ -15,6 +15,14 @@ Person::Person(std::string name,
     , gender_(gender)
 {} 
 
+int Person::getSalary() const {
+    return 0;
+}
+
+void Person::setSalary(int) {
+
+}
+
 bool Person::hasPersonalIdentityNumberElevenCharacters() {
     if(personalIdentityNumber_.size() != 11) {
         return false;
