@@ -24,18 +24,10 @@ public:
     
     std::string getIndexNumber() const { return indexNumber_; }
    
-    bool hasPersonalIdentityNumberElevenCharacters();
-    bool areAllCharactersDigit();
-    bool isMonthCodeCorrect();
-    bool isDayCodeCorrect();
-    bool isGenderCorrect();
-    bool isLastNumberCorrect();
-    bool validateGenderName();
-    bool validateIndexNumber();
-    bool validatePersonalIdentityNumber();
 
-    void stringValidation(std::string&);
 
 private:
+    bool validateIndexNumber();
+    
     std::string indexNumber_{};
 };

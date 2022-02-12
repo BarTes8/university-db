@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 
 class Person {
 public:
@@ -18,6 +19,18 @@ public:
     std::string getGender() const { return gender_; }
 
 protected:
+    bool hasPersonalIdentityNumberElevenCharacters();
+    bool areAllCharactersDigit();
+    bool isMonthCodeCorrect();
+    bool isDayCodeCorrect();
+    bool isGenderCorrect();
+    bool isLastNumberCorrect();
+    bool validateGenderName();
+    
+    bool validatePersonalIdentityNumber();
+
+    void stringValidation(std::string&);
+
     std::string name_{};
     std::string surname_{};
     std::string address_{};
